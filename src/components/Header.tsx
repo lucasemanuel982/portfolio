@@ -58,21 +58,21 @@ export function Header() {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10 w-full overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full">
+        <div className="flex items-center justify-between h-14 sm:h-16 min-w-0">
           {/* Logo */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-2 sm:gap-3 min-w-0 flex-shrink-0"
           >
             <motion.div 
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ duration: 0.2 }}
-              className="w-10 h-10 rounded-full overflow-hidden shadow-lg ring-2 ring-blue-400/30 ring-offset-2 ring-offset-black/50"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-lg ring-1 sm:ring-2 ring-blue-400/30 ring-offset-1 sm:ring-offset-2 ring-offset-black/50 flex-shrink-0"
             >
               <Image 
                 src="/Perfil.png" 
@@ -87,7 +87,7 @@ export function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="font-bold text-lg bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent"
+              className="font-bold text-sm sm:text-lg bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent whitespace-nowrap truncate"
             >
               Lucas Emanuel
             </motion.span>
@@ -156,7 +156,7 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             onClick={toggleMobileMenu}
-            className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center group"
+            className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center group flex-shrink-0"
           >
             <motion.span
               className="block w-6 h-0.5 bg-white rounded-full transition-all duration-300"
@@ -190,9 +190,9 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/90 backdrop-blur-xl border-t border-white/10"
+            className="md:hidden bg-black/90 backdrop-blur-xl border-t border-white/10 w-full overflow-hidden"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-2 sm:px-4 py-4 sm:py-6 space-y-3 sm:space-y-4">
               {menuItems.map((item, index) => (
                 <motion.button
                   key={item.id}
