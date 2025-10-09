@@ -1,0 +1,256 @@
+'use client'
+
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import { 
+  IconCalendar, 
+  IconMapPin, 
+  IconTrophy,
+  IconCode,
+} from "@tabler/icons-react";
+
+interface TimelineEvent {
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  description: string;
+  achievements: string[];
+  type: 'job' | 'achievement' | 'project';
+  icon: React.ReactNode;
+}
+
+export default function Timeline() {
+  const timelineEvents: TimelineEvent[] = [
+    {
+      id: '1',
+      title: 'Desenvolvedor Full Stack Júnior',
+      company: 'Empresa Atual',
+      location: 'Guarabira, PB',
+      period: '2023 - 2024',
+      description: 'Responsável pelo desenvolvimento/manutenção de um e-commerce de produtos/softwares tecnologicos.',
+            achievements: [
+        'Desenvolvimento com PHP, MySQL, Node.js, Bootstrap, HTML, CSS, JavaScript, jQuery, TypeScript, Express.js, Docker, API Rest',
+        'Integração com API de pagamentos,SMS e Email',
+        'Criação de e-mail marketing para envio de newsletters',
+        'Criação de sistema de gestão de produtos/pedidos',
+      ],
+      type: 'job',
+      icon: <IconCode />
+    },
+    {
+      id: '2',
+      title: 'Team Leader  - Desenvolvedor Full Stack Júnior',
+      company: 'Empresa Atual',
+      location: 'Garanhuns, PE',
+      period: '2024',
+      description: 'Team Leader de 3 projetos simultâneos, desenvolvimento de soluções web escaláveis e integração de sistemas, com foco em monitoramento de veículos.',
+      achievements: [
+        'Revisão de código, correções de bugs e melhorias de performance',
+        'Criação de cards/requisitos para entrega de projetos',
+      ],
+      type: 'job',
+      icon: <IconCode />
+    },
+    {
+      id: '3',
+      title: 'Prêmio de Excelência',
+      company: 'Empresa Atual',
+      location: 'Garanhuns, PE',
+      period: '2024',
+      description: 'Reconhecimento por contribuição excepcional e qualidade de código.',
+      achievements: [
+        'Código limpo com poucas reprovações em reviews',
+        'Entrega consistente dentro dos prazos',
+        'Inovação em processos de desenvolvimento'
+      ],
+      type: 'achievement',
+      icon: <IconTrophy />
+    },
+    {
+      id: '4',
+      title: 'Team Leader  - Desenvolvedor Full Stack Pleno',
+      company: 'Empresa Atual',
+      location: 'Garanhuns, PE',
+      period: '2024 - Atual',
+      description: 'Team Leader de 4 projetos simultâneos, desenvolvimento de soluções web escaláveis e integração de sistemas, com foco em monitoramento de veículos.',
+      achievements: [
+        'Especialização em React e Node.js',
+        'Participação em 10+ projetos diferentes',
+        'Certificação em metodologias ágeis'
+      ],
+      type: 'job',
+      icon: <IconCode />
+    },
+  ];
+
+  return (
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="relative py-16 px-4 sm:px-6 lg:px-8"
+    >
+      <div className="max-w-4xl mx-auto">
+        {/* Título da seção */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
+            Trajetória Profissional
+          </h2>
+          <motion.div 
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="w-24 h-1 bg-blue-500 mx-auto origin-center"
+          />
+        </motion.div>
+
+        {/* Timeline */}
+        <div className="relative">
+          {/* Linha central da timeline */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-500 transform md:-translate-x-0.5" />
+          
+          {timelineEvents.map((event, index) => (
+            <TimelineItem 
+              key={event.id} 
+              event={event} 
+              index={index} 
+              isLeft={index % 2 === 0} 
+            />
+          ))}
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+interface TimelineItemProps {
+  event: TimelineEvent;
+  index: number;
+  isLeft: boolean;
+}
+
+const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50, x: isLeft ? -50 : 50 }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      transition={{ 
+        duration: 0.6, 
+        delay: index * 0.2,
+        ease: "easeOut"
+      }}
+      viewport={{ once: true }}
+      className={cn(
+        "relative flex items-center mb-12",
+        "md:flex-row md:justify-between",
+        isLeft ? "md:flex-row-reverse" : "md:flex-row"
+      )}
+    >
+      {/* Conteúdo do card */}
+      <motion.div
+        whileHover={{ 
+          scale: 1.02,
+          transition: { duration: 0.2 }
+        }}
+        className={cn(
+          "w-full md:w-5/12 relative group",
+          isLeft ? "md:mr-8" : "md:ml-8"
+        )}
+      >
+        {/* Card principal */}
+        <div className="bg-neutral-800 rounded-xl p-6 shadow-lg border border-neutral-700 relative overflow-hidden">
+          {/* Efeito de hover com gradiente */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-900/20 to-transparent pointer-events-none" />
+          
+          {/* Linhas animadas no hover */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-500 delay-100" />
+            <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-transparent via-blue-400 to-transparent transform translate-x-full group-hover:-translate-x-full transition-transform duration-500 delay-200" />
+          </div>
+
+          {/* Header do card */}
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-3">
+              <div className={cn(
+                "p-2 rounded-lg text-white",
+                event.type === 'job' && "bg-blue-500",
+                event.type === 'achievement' && "bg-yellow-500",
+                event.type === 'project' && "bg-green-500"
+              )}>
+                {event.icon}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-neutral-100">
+                  {event.title}
+                </h3>
+                <p className="text-sm text-blue-400 font-medium">
+                  {event.company}
+                </p>
+              </div>
+            </div>
+
+            {/* Informações adicionais */}
+            <div className="flex flex-wrap gap-4 mb-4 text-sm text-neutral-400">
+              <div className="flex items-center gap-1">
+                <IconCalendar className="w-4 h-4" />
+                <span>{event.period}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <IconMapPin className="w-4 h-4" />
+                <span>{event.location}</span>
+              </div>
+            </div>
+
+            {/* Descrição */}
+            <p className="text-neutral-300 mb-4 leading-relaxed">
+              {event.description}
+            </p>
+
+            {/* Achievements */}
+            <div className="space-y-2">
+              <h4 className="text-sm font-semibold text-neutral-100">
+                Principais atividades:
+              </h4>
+              <ul className="space-y-1">
+                {event.achievements.map((achievement, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.2 + idx * 0.1 + 0.3 }}
+                    viewport={{ once: true }}
+                    className="flex items-start gap-2 text-sm text-neutral-400"
+                  >
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                    <span>{achievement}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Ponto central da timeline */}
+      <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-neutral-900 transform -translate-x-2 md:-translate-x-2 z-10" />
+      
+      {/* Ponto animado no hover */}
+      <motion.div
+        className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-400 rounded-full transform -translate-x-2 md:-translate-x-2 z-5"
+        initial={{ scale: 0, opacity: 0 }}
+        whileHover={{ scale: 1.5, opacity: 0.3 }}
+        transition={{ duration: 0.2 }}
+      />
+    </motion.div>
+  );
+};
