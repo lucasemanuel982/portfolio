@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Links sociais */}
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <motion.a
-              href="https://github.com"
+              href="https://github.com/lucasemanuel982"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -58,7 +58,7 @@ export default function Footer() {
             </motion.a>
 
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/lucasemanuell/"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.8 }}
