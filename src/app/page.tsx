@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { motion } from "motion/react";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 // Lazy loading de componentes pesados
 const FeaturesSectionDemo2 = dynamic(() => import("@/components/features-section-demo-2"), {
@@ -33,6 +34,9 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 });
 
 export default function Home() {
+  // Rastrear visualizações de página
+  usePageTracking();
+
   return (
     <main className="relative min-h-screen">
       <AnimatedBackground />
