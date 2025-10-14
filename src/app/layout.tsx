@@ -4,6 +4,7 @@ import "./globals.css";
 import SuppressHydrationWarning from "@/components/SuppressHydrationWarning";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
 import { FloatingElements } from "@/components/FloatingElements";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,11 +61,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="pt-BR" className="dark" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
         suppressHydrationWarning
       >
+        <GoogleAnalytics />
         <SuppressHydrationWarning />
         <ScrollIndicator />
         <FloatingElements />

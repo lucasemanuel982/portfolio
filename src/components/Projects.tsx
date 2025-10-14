@@ -18,6 +18,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
+  video?: string;
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -60,6 +61,7 @@ const projects: Project[] = [
     title: "Leads App",
     description: "Aplicativo de Leads, contendo permissões para editar, visualizar e deletar leads.",
     image: "/leadsProject.png",
+    video: "/leadsApp.mp4",
     tags: ["Next.js", "Node.js", "MongoDB", "Express.js", "TypeScript", "Vercel", "Shadcn/UI","SSG"],
         urls: [
       {
@@ -216,13 +218,24 @@ export default function Projects() {
                   className="w-full mt-6"
                 >
                   <div className="relative w-full h-36 rounded-lg overflow-hidden mb-4">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      loading="lazy"
-                      className="object-cover group-hover/card:scale-105 transition-transform duration-300"
-                    />
+                    {project.video ? (
+                      <video
+                        src={project.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        loading="lazy"
+                        className="object-cover group-hover/card:scale-105 transition-transform duration-300"
+                      />
+                    )}
                   </div>
                 </CardItem>
                 
