@@ -1,12 +1,11 @@
-# 💼 Portfólio - Lucas Emanuel
+# Portfólio - Lucas Emanuel
 
 Portfólio pessoal desenvolvido com Next.js, apresentando meus projetos e habilidades como desenvolvedor Full Stack.
 
-## 🚀 Link do Projeto
+## [Link do Projeto](https://portfolio-iota-nine-6xjhiwl0yw.vercel.app/)
 
-- **Desenvolvimento Local:** [http://localhost:3000](http://localhost:3000)
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Frontend
 - **[Next.js 15.5.3](https://nextjs.org/)** - Framework React para produção
@@ -36,31 +35,17 @@ Portfólio pessoal desenvolvido com Next.js, apresentando meus projetos e habili
 - **[Nodemailer](https://nodemailer.com/)** - Módulo para envio de e-mails
 
 
-## 📁 Estrutura do Projeto
 
-```
-portfolio/
-├── public/              # Arquivos estáticos (imagens, modelos 3D, etc.)
-├── src/
-│   ├── app/            # Rotas e páginas do Next.js
-│   ├── components/     # Componentes React reutilizáveis
-│   │   └── ui/        # Componentes UI (shadcn/ui)
-│   ├── lib/           # Utilitários e helpers
-│   └── types/         # Tipos TypeScript
-├── package.json
-├── tsconfig.json
-└── tailwind.config.js
-```
+##  Recursos
 
-## ✨ Recursos
-
-- 🎨 Design moderno e responsivo
-- 🌊 Animações suaves e interativas
-- 🎭 Efeitos 3D com Three.js
-- 📱 Mobile-first
-- ⚡ Performance otimizada com Next.js
-- 🎯 Componentes reutilizáveis
-- 🔍 SEO otimizado
+- Design moderno e responsivo
+- Animações suaves e interativas
+- Efeitos 3D com Three.js
+- Mobile-first
+- Performance otimizada com Next.js
+- Componentes reutilizáveis
+- SEO otimizado
+- Google Analytics
 
 
 
