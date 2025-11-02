@@ -5,3 +5,5 @@
 .env*
 .vercel
 next-env.d.ts
+
+.early.coverage
