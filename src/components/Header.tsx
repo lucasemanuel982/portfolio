@@ -7,6 +7,7 @@ import { useState, useEffect } from "react"
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [isManualScroll, setIsManualScroll] = useState(false)
 
   const menuItems = [
     { id: 'home', label: 'HOME', href: '#home' },
@@ -22,18 +23,25 @@ export function Header() {
 
   // Função para scroll suave
   const scrollToSection = (sectionId: string) => {
+    setIsManualScroll(true)
+    setActiveSection(sectionId)
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       })
+      setTimeout(() => {
+        setIsManualScroll(false)
+      }, 1000)
     }
   }
 
   // Detecção da seção ativa baseada no scroll
   useEffect(() => {
     const handleScroll = () => {
+      if (isManualScroll) return
+
       const sections = ['home', 'sobre', 'skills', 'projetos', 'contato']
       const scrollPosition = window.scrollY + 100
 
@@ -51,7 +59,7 @@ export function Header() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isManualScroll])
 
   return (
     <motion.header 
@@ -110,7 +118,6 @@ export function Header() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   scrollToSection(item.id)
-                  setActiveSection(item.id)
                 }}
                 className={`
                   relative px-4 py-2 text-sm font-medium transition-all duration-300 group
@@ -202,7 +209,6 @@ export function Header() {
                   whileHover={{ x: 10 }}
                   onClick={() => {
                     scrollToSection(item.id)
-                    setActiveSection(item.id)
                     setIsMobileMenuOpen(false)
                   }}
                   className={`
