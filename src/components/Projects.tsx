@@ -133,6 +133,25 @@ const projects: Project[] = [
     image: "/gestaoDeAtivos.jpg",
     tags: ["Node.js", "Express.js", "Redis", "TypeScript", "MySQL", "Docker", "API Rest", "HTML", "CSS", "JavaScript"],
   },
+  {
+    id: 5,
+    title: "Landing Page - SAAS - Xora",
+    description: "Landing Page para um SAAS Edição de vídeos, onde o sistema é responsável por editar vídeos de forma automática.",
+    image: "/xora.png",
+    tags: ["Next.js", "Tailwind", "TypeScript", "Vercel", "Shadcn/UI", "SSG"],
+    urls: [
+      {
+        label: "Frontend",
+        url: "https://github.com/lucasemanuel982/xoraAi",
+        icon: <SiGithub className="w-4 h-4" />
+      },
+      {
+        label: "Live Demo",
+        url: "https://xora-ai-brown.vercel.app/",
+        icon: <ExternalLink className="w-4 h-4" />
+      }
+    ]
+  },
 ];
 
 export default function Projects() {
