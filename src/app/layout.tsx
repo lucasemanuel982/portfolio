@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-iota-nine-6xjhiwl0yw.vercel.app/"),
   title: "Lucas Emanuel - Desenvolvedor Full Stack | Portfolio",
   description: "Lucas Emanuel - Desenvolvedor Full Stack especializado em React, Next.js, Node.js e PHP. Conheça meus projetos e experiência profissional.",
   keywords: "Lucas Emanuel, desenvolvedor, programador, full stack, frontend, backend, React, Next.js, Node.js, PHP, portfolio",
@@ -26,12 +27,12 @@ export const metadata: Metadata = {
   publisher: "Lucas Emanuel",
   robots: "index, follow",
   alternates: {
-    canonical: "https://www.lucasemanuel.com.br",
+    canonical: "https://portfolio-iota-nine-6xjhiwl0yw.vercel.app/",
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://www.lucasemanuel.com.br",
+    url: "https://portfolio-iota-nine-6xjhiwl0yw.vercel.app/",
     title: "Lucas Emanuel - Desenvolvedor Full Stack | Portfolio",
     description: "Lucas Emanuel - Desenvolvedor Full Stack especializado em React, Next.js, Node.js e PHP. Conheça meus projetos e experiência profissional.",
     siteName: "Portfolio de Lucas Emanuel",

@@ -65,7 +65,7 @@ export function Header() {
     <motion.header 
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10 w-full overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full">
@@ -74,12 +74,12 @@ export function Header() {
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.25, delay: 0.1 }}
             className="flex items-center gap-2 sm:gap-3 min-w-0 flex-shrink-0"
           >
             <motion.div 
               whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.1 }}
               className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-lg ring-1 sm:ring-2 ring-blue-400/30 ring-offset-1 sm:ring-offset-2 ring-offset-black/50 flex-shrink-0"
             >
               <Image 
@@ -94,7 +94,7 @@ export function Header() {
             <motion.span 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.2 }}
               className="font-bold text-sm sm:text-lg bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent whitespace-nowrap truncate"
             >
               Lucas Emanuel
@@ -105,15 +105,15 @@ export function Header() {
           <motion.nav 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.25, delay: 0.2 }}
             className="hidden md:flex items-center gap-8"
           >
             {menuItems.map((item, index) => (
               <motion.button
-                key={item.id}
+                key={`desktop-${item.id}`}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
+                transition={{ delay: 0.25 + index * 0.05 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
@@ -132,7 +132,7 @@ export function Header() {
                 {/* Background hover effect */}
                 <motion.div
                   className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/20 to-blue-400/20 opacity-0 group-hover:opacity-100"
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.15 }}
                 />
                 
                 {/* Active indicator */}
@@ -141,7 +141,7 @@ export function Header() {
                     layoutId="activeTab"
                     className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/30 to-blue-400/30"
                     initial={false}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    transition={{ type: "spring", stiffness: 800, damping: 40 }}
                   />
                 )}
                 
@@ -151,7 +151,7 @@ export function Header() {
                   initial={{ width: 0 }}
                   animate={{ width: activeSection === item.id ? "100%" : 0 }}
                   whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.15 }}
                 />
               </motion.button>
             ))}
@@ -161,11 +161,12 @@ export function Header() {
           <motion.button
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.25, delay: 0.3 }}
             onClick={toggleMobileMenu}
             className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center group flex-shrink-0"
           >
             <motion.span
+              key="hamburger-top"
               className="block w-6 h-0.5 bg-white rounded-full transition-all duration-300"
               animate={{
                 rotate: isMobileMenuOpen ? 45 : 0,
@@ -173,12 +174,14 @@ export function Header() {
               }}
             />
             <motion.span
+              key="hamburger-middle"
               className="block w-6 h-0.5 bg-white rounded-full transition-all duration-300"
               animate={{
                 opacity: isMobileMenuOpen ? 0 : 1,
               }}
             />
             <motion.span
+              key="hamburger-bottom"
               className="block w-6 h-0.5 bg-white rounded-full transition-all duration-300"
               animate={{
                 rotate: isMobileMenuOpen ? -45 : 0,
@@ -196,16 +199,16 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.15 }}
             className="md:hidden bg-black/90 backdrop-blur-xl border-t border-white/10 w-full overflow-hidden"
           >
             <div className="px-2 sm:px-4 py-4 sm:py-6 space-y-3 sm:space-y-4">
               {menuItems.map((item, index) => (
                 <motion.button
-                  key={item.id}
+                  key={`mobile-${item.id}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.05 }}
                   whileHover={{ x: 10 }}
                   onClick={() => {
                     scrollToSection(item.id)

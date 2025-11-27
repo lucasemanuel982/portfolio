@@ -142,7 +142,11 @@ export function Hero() {
               transition={{ duration: 0.4, delay: 0.5 }}
               className="text-lg md:text-xl leading-relaxed text-white"
             >
-              <TextGenerateEffect words="Bem vindo ao meu portfólio! Eu sou Lucas Emanuel, um desenvolvedor full stack. Desenvolvo aplicações tanto back-end quanto front-end e possuo conhecimento em infraestrutura. Tenho mais de 2 anos de experiência em desenvolvimento de software." />
+              <TextGenerateEffect 
+                words="Bem vindo ao meu portfólio! Eu sou Lucas Emanuel, um desenvolvedor full stack. Desenvolvo aplicações tanto back-end quanto front-end e possuo conhecimento em infraestrutura. Tenho mais de 2 anos de experiência em desenvolvimento de software."
+                duration={0.15}
+                staggerDelay={0.075}
+              />
             </motion.div>
             
             {/* Botão de Download CV */}

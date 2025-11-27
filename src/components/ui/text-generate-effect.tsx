@@ -7,12 +7,14 @@ export const TextGenerateEffect = ({
   words,
   className,
   filter = true,
-  duration = 0.2,
+  duration = 0.1,
+  staggerDelay = 0.05,
 }: {
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
+  staggerDelay?: number;
 }) => {
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
@@ -25,7 +27,7 @@ export const TextGenerateEffect = ({
       },
       {
         duration: duration ? duration : 0.5,
-        delay: stagger(0.2),
+        delay: stagger(staggerDelay),
       }
     );
   }, [scope.current]);
@@ -36,7 +38,7 @@ export const TextGenerateEffect = ({
         {wordsArray.map((word, idx) => {
           return (
             <motion.span
-              key={word + idx}
+              key={`word-${idx}`}
               className="text-white opacity-0"
               style={{
                 filter: filter ? "blur(10px)" : "none",
