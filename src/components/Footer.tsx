@@ -13,7 +13,7 @@ export default function Footer() {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.25 }}
               viewport={{ once: true }}
               className="text-neutral-400 text-sm"
             >
@@ -23,7 +23,7 @@ export default function Footer() {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.25, delay: 0.05 }}
               viewport={{ once: true }}
               className="text-neutral-500 text-xs mt-1"
             >
@@ -39,19 +39,19 @@ export default function Footer() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.25, delay: 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-300 border border-neutral-700/50 hover:border-blue-500/50"
+              className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-150 border border-neutral-700/50 hover:border-blue-500/50"
             >
               <SiGithub 
-                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-300" 
+                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150" 
               />
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+                className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-150 whitespace-nowrap"
               >
                 GitHub
               </motion.div>
@@ -63,19 +63,19 @@ export default function Footer() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.25, delay: 0.15 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-300 border border-neutral-700/50 hover:border-blue-500/50"
+              className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-150 border border-neutral-700/50 hover:border-blue-500/50"
             >
               <SiLinkedin 
-                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-300" 
+                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150" 
               />
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+                className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-150 whitespace-nowrap"
               >
                 LinkedIn
               </motion.div>
@@ -87,19 +87,19 @@ export default function Footer() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.25, delay: 0.2 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-300 border border-neutral-700/50 hover:border-blue-500/50"
+              className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-150 border border-neutral-700/50 hover:border-blue-500/50"
             >
               <SiWhatsapp 
-                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-300" 
+                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150" 
               />
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+                className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-150 whitespace-nowrap"
               >
                 WhatsApp
               </motion.div>
@@ -112,7 +112,7 @@ export default function Footer() {
         <motion.div 
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           viewport={{ once: true }}
           className="w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent mt-6"
         />

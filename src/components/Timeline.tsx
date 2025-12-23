@@ -111,7 +111,7 @@ export default function Timeline() {
     <motion.section 
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.3 }}
       viewport={{ once: true }}
       className="relative py-16 px-4 sm:px-6 lg:px-8"
     >
@@ -120,7 +120,7 @@ export default function Timeline() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.25 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -130,7 +130,7 @@ export default function Timeline() {
           <motion.div 
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             viewport={{ once: true }}
             className="w-24 h-1 bg-blue-500 mx-auto origin-center"
           />
@@ -169,8 +169,8 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
       initial={{ opacity: 0, y: 50, x: isLeft ? -50 : 50 }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       transition={{ 
-        duration: 0.6, 
-        delay: index * 0.2,
+        duration: 0.3, 
+        delay: index * 0.1,
         ease: "easeOut"
       }}
       viewport={{ once: true }}
@@ -184,7 +184,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
       <motion.div
         whileHover={{ 
           scale: 1.02,
-          transition: { duration: 0.2 }
+          transition: { duration: 0.1 }
         }}
         className={cn(
           "w-full md:w-5/12 relative group",
@@ -194,12 +194,12 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
         {/* Card principal */}
         <div className="bg-neutral-800 rounded-xl p-6 shadow-lg border border-neutral-700 relative overflow-hidden">
           {/* Efeito de hover com gradiente */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-900/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 bg-gradient-to-br from-blue-900/20 to-transparent pointer-events-none" />
           
           {/* Linhas animadas no hover */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-500 delay-100" />
-            <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-transparent via-blue-400 to-transparent transform translate-x-full group-hover:-translate-x-full transition-transform duration-500 delay-200" />
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-250 delay-50" />
+            <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-transparent via-blue-400 to-transparent transform translate-x-full group-hover:-translate-x-full transition-transform duration-250 delay-100" />
           </div>
 
           {/* Header do card */}
@@ -251,7 +251,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.2 + idx * 0.1 + 0.3 }}
+                    transition={{ duration: 0.2, delay: index * 0.1 + idx * 0.05 + 0.15 }}
                     viewport={{ once: true }}
                     className="flex items-start gap-2 text-sm text-neutral-400"
                   >
@@ -303,7 +303,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
                 alt={event.title}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.2 }}
                 className="w-full rounded-lg shadow-lg border border-neutral-700 object-cover"
               />
             </div>
@@ -342,7 +342,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
         className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-400 rounded-full transform -translate-x-2 md:-translate-x-2 z-5"
         initial={{ scale: 0, opacity: 0 }}
         whileHover={{ scale: 1.5, opacity: 0.3 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.1 }}
       />
     </motion.div>
   );

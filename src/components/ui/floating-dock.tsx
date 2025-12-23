@@ -32,7 +32,7 @@ export function FloatingDock({
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 0.5,
+          duration: 0.25,
           ease: "easeOut",
         }}
       >
@@ -52,20 +52,20 @@ export function FloatingDock({
                   item.onClick();
                 }
               }}
-              className="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl bg-neutral-900/50 p-2.5 text-neutral-500 transition-all duration-300 ease-out hover:bg-neutral-800/80 hover:text-neutral-300 hover:scale-110 hover:-translate-y-1 relative"
+              className="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl bg-neutral-900/50 p-2.5 text-neutral-500 transition-all duration-150 ease-out hover:bg-neutral-800/80 hover:text-neutral-300 hover:scale-110 hover:-translate-y-1 relative"
               whileHover={{ scale: 1.0 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.3,
-                delay: index * 0.1,
+                duration: 0.15,
+                delay: index * 0.05,
                 ease: "easeOut",
               }}
             >
             {/* Efeito de brilho azul - igual aos cards das skills */}
-            <div className="absolute inset-0 rounded-xl border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
-            <div className="absolute inset-0 rounded-xl border border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-xl border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150 blur-sm" />
+            <div className="absolute inset-0 rounded-xl border border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
             
               {/* Ícone */}
               <div className="relative z-10">

@@ -83,14 +83,14 @@ export default function Contact() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.25, delay: 0.1 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-4 text-neutral-100"
           >
@@ -99,7 +99,7 @@ export default function Contact() {
           <motion.div 
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
             className="w-24 h-1 bg-blue-500 mx-auto mb-6 origin-center"
           />
@@ -109,7 +109,7 @@ export default function Contact() {
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.15 }}
           viewport={{ once: true }}
           className="max-w-7xl mx-auto"
         >
@@ -127,7 +127,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                transition={{ duration: 0.25, delay: 0.2 }}
                 viewport={{ once: true }}
               >
                 <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-2">
@@ -142,7 +142,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-150"
                     placeholder="Seu nome completo"
                   />
                 </div>
@@ -152,7 +152,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                transition={{ duration: 0.25, delay: 0.25 }}
                 viewport={{ once: true }}
               >
                 <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-2">
@@ -167,7 +167,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-150"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -177,7 +177,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
+                transition={{ duration: 0.25, delay: 0.3 }}
                 viewport={{ once: true }}
               >
                 <label htmlFor="subject" className="block text-sm font-medium text-neutral-300 mb-2">
@@ -192,7 +192,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-150"
                     placeholder="Assunto da mensagem"
                   />
                 </div>
@@ -202,7 +202,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
+                transition={{ duration: 0.25, delay: 0.35 }}
                 viewport={{ once: true }}
               >
                 <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-2">
@@ -224,14 +224,14 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
+                transition={{ duration: 0.25, delay: 0.4 }}
                 viewport={{ once: true }}
                 className="pt-4"
               >
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 disabled:from-neutral-600 disabled:to-neutral-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 disabled:from-neutral-600 disabled:to-neutral-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-150 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                 </button>

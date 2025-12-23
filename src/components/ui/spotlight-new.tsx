@@ -22,7 +22,7 @@ export const Spotlight = ({
   width = 560,
   height = 1380,
   smallWidth = 240,
-  duration = 7,
+  duration = 3.5,
   xOffset = 100,
 }: SpotlightProps = {}) => {
   // Gradientes padrão
@@ -44,7 +44,7 @@ export const Spotlight = ({
         opacity: 1,
       }}
       transition={{
-        duration: 1.5,
+        duration: 0.75,
       }}
       className="pointer-events-none absolute inset-0 h-full w-full"
     >
@@ -53,7 +53,7 @@ export const Spotlight = ({
           x: [0, xOffset, 0],
         }}
         transition={{
-          duration,
+          duration: duration,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "easeInOut",
@@ -96,7 +96,7 @@ export const Spotlight = ({
           x: [0, -xOffset, 0],
         }}
         transition={{
-          duration,
+          duration: duration,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "easeInOut",

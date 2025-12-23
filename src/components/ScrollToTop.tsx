@@ -23,7 +23,7 @@ export function ScrollToTop() {
 
   const scrollToTop = () => {
     const startTime = Date.now()
-    const duration = 800 // 800ms de duração
+    const duration = 400 // 400ms de duração
     const startPosition = window.scrollY
     
     // Função de easing suave (ease-out)
@@ -56,21 +56,21 @@ export function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           whileHover={{ 
             scale: 1.1,
-            transition: { duration: 0.3, ease: "easeOut" }
+            transition: { duration: 0.15, ease: "easeOut" }
           }}
           whileTap={{ 
             scale: 0.95,
-            transition: { duration: 0.1 }
+            transition: { duration: 0.05 }
           }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg border border-blue-400 transition-all duration-300 group cursor-pointer"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg border border-blue-400 transition-all duration-150 group cursor-pointer"
           aria-label="Voltar ao topo"
         >
           {/* Ícone com animação de subida */}
           <motion.div
             animate={{ y: [0, -2, 0] }}
             transition={{ 
-              duration: 1.5, 
+              duration: 0.75, 
               repeat: Infinity, 
               ease: "easeInOut" 
             }}
@@ -79,10 +79,10 @@ export function ScrollToTop() {
           </motion.div>
           
           {/* Efeito de brilho no hover */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-150" />
           
           {/* Tooltip */}
-          <div className="absolute bottom-full right-0 mb-2 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+          <div className="absolute bottom-full right-0 mb-2 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-100 whitespace-nowrap">
             Voltar ao topo
           </div>
         </motion.button>

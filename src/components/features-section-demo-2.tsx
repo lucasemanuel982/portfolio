@@ -66,7 +66,7 @@ export default function FeaturesSectionDemo() {
     <motion.div 
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.3 }}
       viewport={{ once: true }}
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
     >
@@ -93,14 +93,14 @@ const Feature = ({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ 
-        duration: 0.5, 
-        delay: index * 0.1,
+        duration: 0.25, 
+        delay: index * 0.05,
         ease: "easeOut"
       }}
       viewport={{ once: true }}
       whileHover={{ 
         y: -5,
-        transition: { duration: 0.2 }
+        transition: { duration: 0.1 }
       }}
       className={cn(
         "flex flex-col lg:border-r  py-10 relative group/feature border-neutral-800",
@@ -109,27 +109,27 @@ const Feature = ({
       )}
     >
       {index < 4 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-800 to-transparent pointer-events-none" />
+        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-100 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-800 to-transparent pointer-events-none" />
       )}
       {index >= 4 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-800 to-transparent pointer-events-none" />
+        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-100 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-800 to-transparent pointer-events-none" />
       )}
       
       {/* Linhas azuis animadas no hover */}
-      <div className="absolute inset-0 opacity-0 group-hover/feature:opacity-100 transition-opacity duration-300 overflow-hidden">
+      <div className="absolute inset-0 opacity-0 group-hover/feature:opacity-100 transition-opacity duration-150 overflow-hidden">
         {/* Linha superior */}
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent transform -translate-x-full group-hover/feature:translate-x-full transition-transform duration-500 delay-100" />
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent transform -translate-x-full group-hover/feature:translate-x-full transition-transform duration-250 delay-50" />
         {/* Linha inferior */}
-        <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-transparent via-blue-400 to-transparent transform translate-x-full group-hover/feature:-translate-x-full transition-transform duration-500 delay-200" />
+        <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-transparent via-blue-400 to-transparent transform translate-x-full group-hover/feature:-translate-x-full transition-transform duration-250 delay-100" />
         {/* Linha direita */}
-        <div className="absolute top-0 right-0 h-full w-[2px] bg-gradient-to-b from-transparent via-blue-400 to-transparent transform -translate-y-full group-hover/feature:translate-y-full transition-transform duration-500 delay-300" />
+        <div className="absolute top-0 right-0 h-full w-[2px] bg-gradient-to-b from-transparent via-blue-400 to-transparent transform -translate-y-full group-hover/feature:translate-y-full transition-transform duration-250 delay-150" />
         {/* Linha esquerda */}
-        <div className="absolute bottom-0 left-0 h-full w-[2px] bg-gradient-to-t from-transparent via-blue-400 to-transparent transform translate-y-full group-hover/feature:-translate-y-full transition-transform duration-500 delay-400" />
+        <div className="absolute bottom-0 left-0 h-full w-[2px] bg-gradient-to-t from-transparent via-blue-400 to-transparent transform translate-y-full group-hover/feature:-translate-y-full transition-transform duration-250 delay-200" />
       </div>
       <motion.div 
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
+        transition={{ duration: 0.2, delay: index * 0.05 + 0.1 }}
         viewport={{ once: true }}
         className="mb-4 relative z-10 px-4 sm:px-10 text-neutral-400"
       >
@@ -138,19 +138,19 @@ const Feature = ({
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: index * 0.1 + 0.3 }}
+        transition={{ duration: 0.2, delay: index * 0.05 + 0.15 }}
         viewport={{ once: true }}
         className="text-lg font-bold mb-2 relative z-10 px-4 sm:px-10"
       >
-        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-700 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center" />
-        <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-100">
+        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-700 group-hover/feature:bg-blue-500 transition-all duration-100 origin-center" />
+        <span className="group-hover/feature:translate-x-2 transition duration-100 inline-block text-neutral-100">
           {title}
         </span>
       </motion.div>
       <motion.p 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
+        transition={{ duration: 0.2, delay: index * 0.05 + 0.2 }}
         viewport={{ once: true }}
         className="text-sm text-neutral-300 max-w-xs relative z-10 px-4 sm:px-10"
       >

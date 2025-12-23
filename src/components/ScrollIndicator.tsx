@@ -23,7 +23,7 @@ export function ScrollIndicator() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.15 }}
       className="fixed top-0 left-0 right-0 z-50 h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 origin-left"
       style={{ scaleX, opacity }}
     />
