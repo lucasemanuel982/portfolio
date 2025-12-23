@@ -47,7 +47,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
             onClick={onClose}
           />
@@ -58,7 +58,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
               className={cn(
                 "relative w-full max-w-2xl max-h-[90vh] overflow-y-auto",
                 "bg-neutral-800 rounded-xl border border-neutral-700 shadow-2xl",
@@ -73,7 +73,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
                   onClick={onClose}
                   className={cn(
                     "p-2 rounded-lg text-neutral-400 hover:text-neutral-100",
-                    "hover:bg-neutral-700 transition-colors duration-200",
+                    "hover:bg-neutral-700 transition-colors duration-100",
                     "focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                   )}
                   aria-label="Fechar modal"

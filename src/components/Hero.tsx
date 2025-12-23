@@ -20,7 +20,7 @@ export function Hero() {
       // Scroll suave customizado
       const startPosition = window.pageYOffset
       const distance = elementPosition - startPosition
-      const duration = 800 // duração em ms
+      const duration = 400 // duração em ms
       let start: number | null = null
 
       function animation(currentTime: number) {
@@ -96,12 +96,12 @@ export function Hero() {
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.25 }}
             className="relative order-2 lg:order-1"
           >
             <motion.div 
               whileHover={{ scale: 1.05, rotate: 2 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.15 }}
               className="group relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl mx-auto"
             >
               <Image
@@ -114,15 +114,15 @@ export function Hero() {
               {/* Conteúdo */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20" />
               
-              <div className="absolute inset-0 rounded-full border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
-              <div className="absolute inset-0 rounded-full border border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-full border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150 blur-sm" />
+              <div className="absolute inset-0 rounded-full border border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
             </motion.div>
             
             {/* Ícones de redes sociais */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
+              transition={{ duration: 0.3, delay: 0.6 }}
               className="mt-8"
             >
               <FloatingDock items={socialLinks} />
@@ -133,19 +133,19 @@ export function Hero() {
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: 0.5 }}
+            transition={{ duration: 0.2, delay: 0.25 }}
             className="space-y-8 order-1 lg:order-2"
           >
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
+              transition={{ duration: 0.2, delay: 0.25 }}
               className="text-lg md:text-xl leading-relaxed text-white"
             >
               <TextGenerateEffect 
                 words="Bem vindo ao meu portfólio! Eu sou Lucas Emanuel, um desenvolvedor full stack. Desenvolvo aplicações tanto back-end quanto front-end e possuo conhecimento em infraestrutura. Tenho mais de 2 anos de experiência em desenvolvimento de software."
-                duration={0.15}
-                staggerDelay={0.075}
+                duration={0.075}
+                staggerDelay={0.0375}
               />
             </motion.div>
             
@@ -153,11 +153,11 @@ export function Hero() {
             <motion.button 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.1 }}
+              transition={{ duration: 0.3, delay: 0.55 }}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={downloadCV}
-              className="bg-blue-400 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-blue-400/25 cursor-pointer"
+              className="bg-blue-400 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-150 inline-flex items-center gap-2 shadow-lg hover:shadow-blue-400/25 cursor-pointer"
             >
               Download CV
               <HiDownload className="w-5 h-5" />
