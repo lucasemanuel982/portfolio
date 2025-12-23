@@ -6,11 +6,11 @@ export function FloatingElements() {
 
   const elements = [
     { id: 1, x: 10, y: 20, size: 4, delay: 0 },
-    { id: 2, x: 80, y: 40, size: 6, delay: 0.5 },
-    { id: 3, x: 20, y: 60, size: 3, delay: 1 },
-    { id: 4, x: 70, y: 80, size: 5, delay: 1.5 },
-    { id: 5, x: 30, y: 10, size: 4, delay: 2 },
-    { id: 6, x: 90, y: 70, size: 3, delay: 2.5 },
+    { id: 2, x: 80, y: 40, size: 6, delay: 0.25 },
+    { id: 3, x: 20, y: 60, size: 3, delay: 0.5 },
+    { id: 4, x: 70, y: 80, size: 5, delay: 0.75 },
+    { id: 5, x: 30, y: 10, size: 4, delay: 1 },
+    { id: 6, x: 90, y: 70, size: 3, delay: 1.25 },
   ]
 
   return (
@@ -31,7 +31,7 @@ export function FloatingElements() {
             rotate: [0, 180, 360]
           }}
           transition={{
-            duration: 8,
+            duration: 4,
             delay: element.delay,
             repeat: Infinity,
             ease: "easeInOut"
@@ -54,8 +54,8 @@ export function FloatingElements() {
           rotate: [0, 90, 180, 270, 360]
         }}
         transition={{
-          duration: 12,
-          delay: 3,
+          duration: 6,
+          delay: 1.5,
           repeat: Infinity,
           ease: "easeInOut"
         }}
@@ -72,8 +72,8 @@ export function FloatingElements() {
           rotate: [0, -90, -180, -270, -360]
         }}
         transition={{
-          duration: 10,
-          delay: 1,
+          duration: 5,
+          delay: 0.5,
           repeat: Infinity,
           ease: "easeInOut"
         }}

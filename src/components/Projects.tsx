@@ -163,14 +163,14 @@ export default function Projects() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
           <motion.h2 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-4 text-white"
           >
@@ -179,14 +179,14 @@ export default function Projects() {
           <motion.div 
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
             className="w-24 h-1 bg-blue-500 mx-auto mb-6 origin-center"
           ></motion.div>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
             viewport={{ once: true }}
             className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-gray-400"
           >
@@ -198,7 +198,7 @@ export default function Projects() {
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center"
         >
@@ -208,22 +208,22 @@ export default function Projects() {
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ 
-                duration: 0.5, 
-                delay: index * 0.1,
+                duration: 0.25, 
+                delay: index * 0.05,
                 ease: "easeOut"
               }}
               viewport={{ once: true }}
               whileHover={{ 
                 y: -10,
-                transition: { duration: 0.2 }
+                transition: { duration: 0.1 }
               }}
             >
               <CardContainer className="inter-var">
-                <CardBody className="relative group/card hover:shadow-2xl hover:shadow-blue-500/[0.1] w-full sm:w-[24rem] min-h-[600px] flex flex-col items-center text-center rounded-xl p-4 border backdrop-blur-md transition-all duration-300 bg-white/10 border-white/20 shadow-lg shadow-black/20">
+                <CardBody className="relative group/card hover:shadow-2xl hover:shadow-blue-500/[0.1] w-full sm:w-[24rem] min-h-[600px] flex flex-col items-center text-center rounded-xl p-4 border backdrop-blur-md transition-all duration-150 bg-white/10 border-white/20 shadow-lg shadow-black/20">
                   {/* Efeito de brilho azul - borda com blur */}
-                  <div className="absolute inset-0 rounded-xl border-2 border-blue-500 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 blur-sm" />
+                  <div className="absolute inset-0 rounded-xl border-2 border-blue-500 opacity-0 group-hover/card:opacity-100 transition-opacity duration-150 blur-sm" />
                   {/* Efeito de brilho azul - borda sem blur */}
-                  <div className="absolute inset-0 rounded-xl border border-blue-500 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-xl border border-blue-500 opacity-0 group-hover/card:opacity-100 transition-opacity duration-150" />
                 <CardItem
                   translateZ="50"
                   className="text-xl font-bold text-white text-center w-full"
@@ -244,7 +244,7 @@ export default function Projects() {
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-150"
                       />
                     ) : (
                       <Image
@@ -294,7 +294,7 @@ export default function Projects() {
                         href={urlItem.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium transition-all duration-200 backdrop-blur-sm border flex-shrink-0 ${
+                        className={`flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium transition-all duration-100 backdrop-blur-sm border flex-shrink-0 ${
                           isExternalLink 
                             ? "bg-blue-500/90 text-white hover:bg-blue-600/90 border-blue-400/30" 
                             : "bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border-gray-700/50"
@@ -312,7 +312,7 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium transition-all duration-200 backdrop-blur-sm bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border border-gray-700/50 flex-shrink-0"
+                      className="flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium transition-all duration-100 backdrop-blur-sm bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border border-gray-700/50 flex-shrink-0"
                     >
                       <SiGithub className="w-3 h-3" />
                       GitHub
@@ -323,7 +323,7 @@ export default function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium bg-blue-500/90 text-white hover:bg-blue-600/90 transition-all duration-200 backdrop-blur-sm border border-blue-400/30 flex-shrink-0"
+                      className="flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium bg-blue-500/90 text-white hover:bg-blue-600/90 transition-all duration-100 backdrop-blur-sm border border-blue-400/30 flex-shrink-0"
                     >
                       <ExternalLink className="w-3 h-3" />
                       Live Demo

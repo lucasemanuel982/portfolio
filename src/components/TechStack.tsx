@@ -116,14 +116,14 @@ export default function TechStack() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
           <motion.h2 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4 text-white"
           >
@@ -132,14 +132,14 @@ export default function TechStack() {
           <motion.div 
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
             className="w-24 h-1 bg-blue-500 mx-auto mb-6 origin-center"
           ></motion.div>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
             viewport={{ once: true }}
             className="text-lg text-gray-400"
           >
@@ -150,7 +150,7 @@ export default function TechStack() {
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           viewport={{ once: true }}
           className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-2 justify-items-center"
         >
@@ -162,31 +162,31 @@ export default function TechStack() {
                 initial={{ opacity: 0, scale: 0.5, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ 
-                  duration: 0.4, 
-                  delay: index * 0.05,
+                  duration: 0.2, 
+                  delay: index * 0.025,
                   ease: "easeOut"
                 }}
                 viewport={{ once: true }}
                 whileHover={{ 
                   scale: 1.1, 
                   y: -5,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.1 }
                 }}
                 className="group relative flex flex-col items-center space-y-1 p-1"
               >
                 {/* Ícone com efeito de vidro */}
                 <motion.div 
                   whileHover={{ rotate: 5 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 backdrop-blur-md bg-white/10 border border-white/20 shadow-lg shadow-black/20"
+                  transition={{ duration: 0.1 }}
+                  className="relative w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-150 backdrop-blur-md bg-white/10 border border-white/20 shadow-lg shadow-black/20"
                 >
                   {/* Efeito de brilho */}
-                  <div className="absolute inset-0 rounded-xl border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
-                  <div className="absolute inset-0 rounded-xl border border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-xl border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150 blur-sm" />
+                  <div className="absolute inset-0 rounded-xl border border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                   
                   {/* Ícone */}
                   <IconComponent 
-                    className="w-7 h-7 relative z-10 transition-colors duration-300" 
+                    className="w-7 h-7 relative z-10 transition-colors duration-150" 
                     style={{ color: tech.color }}
                   />
                 </motion.div>
@@ -195,9 +195,9 @@ export default function TechStack() {
                 <motion.span 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 + 0.2 }}
+                  transition={{ duration: 0.15, delay: index * 0.025 + 0.1 }}
                   viewport={{ once: true }}
-                  className="text-xs font-medium text-center transition-colors duration-300 text-gray-300 group-hover:text-white"
+                  className="text-xs font-medium text-center transition-colors duration-150 text-gray-300 group-hover:text-white"
                 >
                   {tech.name}
                 </motion.span>

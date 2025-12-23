@@ -49,7 +49,7 @@ export default function Home() {
           <motion.section 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             className="pb-8 px-4 sm:px-6 lg:px-8"
           >
@@ -57,7 +57,7 @@ export default function Home() {
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.25, delay: 0.1 }}
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl font-bold text-center mb-4 text-neutral-100"
               >
@@ -66,7 +66,7 @@ export default function Home() {
               <motion.div 
                 initial={{ opacity: 0, scaleX: 0 }}
                 whileInView={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
                 viewport={{ once: true }}
                 className="w-24 h-1 bg-blue-500 mx-auto mb-12 origin-center"
               ></motion.div>
