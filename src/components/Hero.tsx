@@ -116,8 +116,8 @@ export function Hero() {
               {/* Conteúdo */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20" />
 
-              <div className="absolute inset-0 rounded-full border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150 blur-sm" />
-              <div className="absolute inset-0 rounded-full border border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+              <div className="absolute inset-0 rounded-full border-2 border-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150 blur-sm" />
+              <div className="absolute inset-0 rounded-full border border-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
             </motion.div>
 
             {/* Ícones de redes sociais */}
@@ -159,7 +159,7 @@ export function Hero() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={downloadCV}
-              className="bg-blue-400 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-150 inline-flex items-center gap-2 shadow-lg hover:shadow-blue-400/25 cursor-pointer"
+              className="bg-brand-400 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-150 inline-flex items-center gap-2 shadow-lg hover:shadow-brand-400/25 cursor-pointer"
             >
               {t('hero.downloadCV')}
               <HiDownload className="w-5 h-5" />

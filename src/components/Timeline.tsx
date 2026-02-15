@@ -106,14 +106,14 @@ export default function Timeline() {
             whileInView={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.3, delay: 0.1 }}
             viewport={{ once: true }}
-            className="w-24 h-1 bg-blue-500 mx-auto origin-center"
+            className="w-24 h-1 bg-brand-500 mx-auto origin-center"
           />
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Linha central da timeline */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-500 transform md:-translate-x-0.5" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-500 via-brand-400 to-brand-500 transform md:-translate-x-0.5" />
 
           {timelineEvents.map((event, index) => (
             <TimelineItem
@@ -169,12 +169,12 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
         {/* Card principal */}
         <div className="bg-neutral-800 rounded-xl p-6 shadow-lg border border-neutral-700 relative overflow-hidden">
           {/* Efeito de hover com gradiente */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 bg-gradient-to-br from-blue-900/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 bg-gradient-to-br from-brand-900/20 to-transparent pointer-events-none" />
 
           {/* Linhas animadas no hover */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-250 delay-50" />
-            <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-transparent via-blue-400 to-transparent transform translate-x-full group-hover:-translate-x-full transition-transform duration-250 delay-100" />
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-400 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-250 delay-50" />
+            <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-transparent via-brand-400 to-transparent transform translate-x-full group-hover:-translate-x-full transition-transform duration-250 delay-100" />
           </div>
 
           {/* Header do card */}
@@ -182,7 +182,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
             <div className="flex items-center gap-3 mb-3">
               <div className={cn(
                 "p-2 rounded-lg text-white",
-                event.type === 'job' && "bg-blue-500",
+                event.type === 'job' && "bg-brand-500",
                 event.type === 'achievement' && "bg-yellow-500",
                 event.type === 'project' && "bg-green-500"
               )}>
@@ -192,7 +192,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
                 <h3 className="text-lg font-bold text-neutral-100">
                   {event.title}
                 </h3>
-                <p className="text-sm text-blue-400 font-medium">
+                <p className="text-sm text-brand-400 font-medium">
                   {event.company}
                 </p>
               </div>
@@ -230,7 +230,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
                     viewport={{ once: true }}
                     className="flex items-start gap-2 text-sm text-neutral-400"
                   >
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 bg-brand-500 rounded-full mt-2 flex-shrink-0" />
                     <span>{achievement}</span>
                   </motion.li>
                 ))}
@@ -300,7 +300,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
                   key={idx}
                   className="flex items-start gap-2 text-sm text-neutral-400"
                 >
-                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 bg-brand-500 rounded-full mt-2 flex-shrink-0" />
                   <span>{achievement}</span>
                 </li>
               ))}
@@ -310,11 +310,11 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
       </Modal>
 
       {/* Ponto central da timeline */}
-      <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-neutral-900 transform -translate-x-2 md:-translate-x-2 z-10" />
+      <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-brand-500 rounded-full border-4 border-neutral-900 transform -translate-x-2 md:-translate-x-2 z-10" />
 
       {/* Ponto animado no hover */}
       <motion.div
-        className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-400 rounded-full transform -translate-x-2 md:-translate-x-2 z-5"
+        className="absolute left-8 md:left-1/2 w-4 h-4 bg-brand-400 rounded-full transform -translate-x-2 md:-translate-x-2 z-5"
         initial={{ scale: 0, opacity: 0 }}
         whileHover={{ scale: 1.5, opacity: 0.3 }}
         transition={{ duration: 0.1 }}

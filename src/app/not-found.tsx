@@ -18,9 +18,9 @@ export default function NotFound() {
     <main className="relative min-h-screen">
       <AnimatedBackground />
       <div className="relative z-10 min-h-screen">
-        
+
         {/* Header simplificado - apenas logo */}
-        <motion.header 
+        <motion.header
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -29,31 +29,31 @@ export default function NotFound() {
           <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full">
             <div className="flex items-center justify-center h-14 sm:h-16 min-w-0">
               {/* Logo */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="flex items-center gap-2 sm:gap-3 min-w-0 flex-shrink-0"
               >
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.2 }}
-                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-lg ring-1 sm:ring-2 ring-blue-400/30 ring-offset-1 sm:ring-offset-2 ring-offset-black/50 flex-shrink-0"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-lg ring-1 sm:ring-2 ring-brand-400/30 ring-offset-1 sm:ring-offset-2 ring-offset-black/50 flex-shrink-0"
                 >
-                  <Image 
-                    src="/Perfil.png" 
-                    alt="Lucas Emanuel - Desenvolvedor Full Stack" 
-                    width={40} 
+                  <Image
+                    src="/Perfil.png"
+                    alt="Lucas Emanuel - Desenvolvedor Full Stack"
+                    width={40}
                     height={40}
                     className="w-full h-full object-cover"
                     quality={100}
                   />
                 </motion.div>
-                <motion.span 
+                <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="font-bold text-sm sm:text-lg bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent whitespace-nowrap truncate"
+                  className="font-bold text-sm sm:text-lg bg-gradient-to-r from-brand-400 to-brand-300 bg-clip-text text-transparent whitespace-nowrap truncate"
                 >
                   Lucas Emanuel
                 </motion.span>
@@ -61,11 +61,11 @@ export default function NotFound() {
             </div>
           </div>
         </motion.header>
-        
+
         {/* Conteúdo principal */}
         <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            
+
             {/* Número 404 com animação */}
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -73,12 +73,12 @@ export default function NotFound() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-8"
             >
-              <motion.h1 
-                className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent"
-                animate={{ 
+              <motion.h1
+                className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-brand-400 via-brand-500 to-brand-600 bg-clip-text text-transparent"
+                animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
-                transition={{ 
+                transition={{
                   duration: 3,
                   repeat: Infinity,
                   ease: "linear"
@@ -123,7 +123,7 @@ export default function NotFound() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={goHome}
-                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-blue-500/25 cursor-pointer min-w-[200px]"
+                className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-brand-500/25 cursor-pointer min-w-[200px]"
               >
                 <HiHome className="w-5 h-5" />
                 Voltar ao Início
@@ -140,7 +140,7 @@ export default function NotFound() {
               {[...Array(3)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="w-2 h-2 bg-blue-400 rounded-full"
+                  className="w-2 h-2 bg-brand-400 rounded-full"
                   animate={{
                     scale: [1, 1.5, 1],
                     opacity: [0.5, 1, 0.5],
@@ -165,7 +165,7 @@ export default function NotFound() {
             </motion.p>
           </div>
         </div>
-        
+
         {/* Footer */}
         <Footer />
       </div>

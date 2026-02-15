@@ -164,7 +164,7 @@ export default function TechStack() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+            className="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400"
           >
             {t('skills.title')}
           </motion.h2>
@@ -173,7 +173,7 @@ export default function TechStack() {
             whileInView={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-32 h-1.5 bg-blue-500 mx-auto mb-6 origin-center rounded-full"
+            className="w-32 h-1.5 bg-brand-500 mx-auto mb-6 origin-center rounded-full"
           ></motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -195,7 +195,7 @@ export default function TechStack() {
               transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              <h3 className="text-2xl font-semibold text-white mb-6 pl-4 border-l-4 border-blue-500">
+              <h3 className="text-2xl font-semibold text-white mb-6 pl-4 border-l-4 border-brand-500">
                 {category.title}
               </h3>
 
@@ -229,8 +229,8 @@ export default function TechStack() {
                         className="relative w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 backdrop-blur-md bg-white/5 border border-white/10 shadow-lg shadow-black/20 group-hover:bg-white/10 group-hover:border-white/30"
                       >
                         {/* Efeito de brilho */}
-                        <div className={`absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm ${tech.glowColor ? `border-${tech.glowColor}` : 'border-blue-500'}`} style={{ borderColor: tech.color }} />
-                        <div className={`absolute inset-0 rounded-xl border opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${tech.glowColor ? `border-${tech.glowColor}` : 'border-blue-500'}`} style={{ borderColor: tech.color }} />
+                        <div className={`absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm ${tech.glowColor ? `border-${tech.glowColor}` : 'border-brand-500'}`} style={{ borderColor: tech.color }} />
+                        <div className={`absolute inset-0 rounded-xl border opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${tech.glowColor ? `border-${tech.glowColor}` : 'border-brand-500'}`} style={{ borderColor: tech.color }} />
 
                         {/* Ícone */}
                         <IconComponent

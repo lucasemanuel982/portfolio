@@ -18,13 +18,13 @@ export function FloatingElements() {
       {elements.map((element) => (
         <motion.div
           key={element.id}
-          initial={{ 
-            opacity: 0, 
+          initial={{
+            opacity: 0,
             scale: 0,
             x: `${element.x}%`,
             y: `${element.y}%`
           }}
-          animate={{ 
+          animate={{
             opacity: [0, 0.3, 0.6, 0.3, 0],
             scale: [0, 1, 1.2, 1, 0],
             y: [`${element.y}%`, `${element.y - 10}%`, `${element.y}%`],
@@ -36,18 +36,18 @@ export function FloatingElements() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute rounded-full bg-blue-400/20"
+          className="absolute rounded-full bg-brand-400/20"
           style={{
             width: `${element.size * 4}px`,
             height: `${element.size * 4}px`,
           }}
         />
       ))}
-      
+
       {/* Elementos maiores com movimento mais lento */}
       <motion.div
         initial={{ opacity: 0, scale: 0, x: "15%", y: "30%" }}
-        animate={{ 
+        animate={{
           opacity: [0, 0.1, 0.2, 0.1, 0],
           scale: [0, 1, 1.5, 1, 0],
           y: ["30%", "25%", "35%", "30%"],
@@ -62,10 +62,10 @@ export function FloatingElements() {
         className="absolute rounded-full bg-purple-400/10"
         style={{ width: "60px", height: "60px" }}
       />
-      
+
       <motion.div
         initial={{ opacity: 0, scale: 0, x: "75%", y: "60%" }}
-        animate={{ 
+        animate={{
           opacity: [0, 0.15, 0.25, 0.15, 0],
           scale: [0, 1, 1.3, 1, 0],
           y: ["60%", "55%", "65%", "60%"],

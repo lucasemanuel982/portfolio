@@ -5,6 +5,8 @@ export const langPT = {
         skills: "SKILLS",
         projects: "PROJETOS",
         contact: "CONTATO",
+        themeColor: "Cor do Tema",
+        customColor: "Cor personalizada",
     },
     home: {
         aboutTitle: "Sobre mim",

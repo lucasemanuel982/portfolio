@@ -183,7 +183,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-24 h-1 bg-blue-500 mx-auto mb-6 origin-center"
+            className="w-24 h-1 bg-brand-500 mx-auto mb-6 origin-center"
           ></motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -221,11 +221,11 @@ export default function Projects() {
               }}
             >
               <CardContainer className="inter-var">
-                <CardBody className="relative group/card hover:shadow-2xl hover:shadow-blue-500/[0.1] w-full sm:w-[24rem] min-h-[600px] flex flex-col items-center text-center rounded-xl p-4 border backdrop-blur-md transition-all duration-150 bg-white/10 border-white/20 shadow-lg shadow-black/20">
+                <CardBody className="relative group/card hover:shadow-2xl hover:shadow-brand-500/[0.1] w-full sm:w-[24rem] min-h-[600px] flex flex-col items-center text-center rounded-xl p-4 border backdrop-blur-md transition-all duration-150 bg-white/10 border-white/20 shadow-lg shadow-black/20">
                   {/* Efeito de brilho azul - borda com blur */}
-                  <div className="absolute inset-0 rounded-xl border-2 border-blue-500 opacity-0 group-hover/card:opacity-100 transition-opacity duration-150 blur-sm" />
+                  <div className="absolute inset-0 rounded-xl border-2 border-brand-500 opacity-0 group-hover/card:opacity-100 transition-opacity duration-150 blur-sm" />
                   {/* Efeito de brilho azul - borda sem blur */}
-                  <div className="absolute inset-0 rounded-xl border border-blue-500 opacity-0 group-hover/card:opacity-100 transition-opacity duration-150" />
+                  <div className="absolute inset-0 rounded-xl border border-brand-500 opacity-0 group-hover/card:opacity-100 transition-opacity duration-150" />
                   <CardItem
                     translateZ="50"
                     className="text-xl font-bold text-white text-center w-full"
@@ -288,16 +288,6 @@ export default function Projects() {
                     {/* URLs customizadas */}
                     {project.urls?.map((urlItem, urlIndex) => {
                       // Verifica se é um link externo baseado no label ou se usa ícone ExternalLink
-                      // Note: Labels might be translated, so checking hardcoded strings "Formulário", etc. might be risky if we rely on it for styling logic.
-                      // However, the styling logic seems to check if it's external link to decide color.
-                      // Ideally we should have a 'type' or similar in ProjectUrl.
-                      // For now, I'll keep the logic but maybe I should check the translated values or just assume all custom URLs are external if they have ExternalLink icon or if we can rely on something else.
-                      // The original code was: 
-                      // const isExternalLink = urlItem.label === "Formulário" || urlItem.label === "Login" || urlItem.label === "Live Demo" || (React.isValidElement(urlItem.icon) && urlItem.icon.type === ExternalLink);
-                      // Since labels are now dynamic, this check might fail.
-                      // I will simplify the check to just assume most custom links are 'buttons' style if they are not github.
-                      // Or better, I can check if icon is SiGithub.
-
                       const isGithub = React.isValidElement(urlItem.icon) && urlItem.icon.type === SiGithub;
                       const isExternalLink = !isGithub;
 
@@ -308,7 +298,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium transition-all duration-100 backdrop-blur-sm border flex-shrink-0 ${isExternalLink
-                            ? "bg-blue-500/90 text-white hover:bg-blue-600/90 border-blue-400/30"
+                            ? "bg-brand-500/90 text-white hover:bg-brand-600/90 border-brand-400/30"
                             : "bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border-gray-700/50"
                             }`}
                         >
@@ -335,7 +325,7 @@ export default function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium bg-blue-500/90 text-white hover:bg-blue-600/90 transition-all duration-100 backdrop-blur-sm border border-blue-400/30 flex-shrink-0"
+                        className="flex items-center gap-1 px-1.5 py-1 rounded-md text-xs font-medium bg-brand-500/90 text-white hover:bg-brand-600/90 transition-all duration-100 backdrop-blur-sm border border-brand-400/30 flex-shrink-0"
                       >
                         <ExternalLink className="w-3 h-3" />
                         {t('projects.labels.liveDemo')}

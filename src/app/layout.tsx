@@ -6,6 +6,7 @@ import { ScrollIndicator } from "@/components/ScrollIndicator";
 import { FloatingElements } from "@/components/FloatingElements";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeColorProvider } from "@/contexts/ThemeColorContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -69,11 +70,13 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <LanguageProvider>
-          <GoogleAnalytics />
-          <SuppressHydrationWarning />
-          <ScrollIndicator />
-          <FloatingElements />
-          {children}
+          <ThemeColorProvider>
+            <GoogleAnalytics />
+            <SuppressHydrationWarning />
+            <ScrollIndicator />
+            <FloatingElements />
+            {children}
+          </ThemeColorProvider>
         </LanguageProvider>
       </body>
     </html>
