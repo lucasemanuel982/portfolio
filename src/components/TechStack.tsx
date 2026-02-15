@@ -46,6 +46,7 @@ import {
   Building,
   Workflow
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TechItem {
   name: string;
@@ -55,10 +56,11 @@ interface TechItem {
 }
 
 export default function TechStack() {
+  const { t } = useLanguage();
 
-  const techCategories = [
+  const techCategories: { title: string; skills: TechItem[] }[] = [
     {
-      title: "Frontend",
+      title: t('skills.categories.frontend'),
       skills: [
         { name: "HTML", icon: SiHtml5, color: "#e34f26", glowColor: "red-500" },
         { name: "CSS", icon: SiCss3, color: "#1572b6", glowColor: "blue-500" },
@@ -75,7 +77,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Backend",
+      title: t('skills.categories.backend'),
       skills: [
         { name: "Node.js", icon: SiNodedotjs, color: "#339933", glowColor: "green-500" },
         { name: "Python", icon: SiPython, color: "#3776ab", glowColor: "blue-600" },
@@ -92,7 +94,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Database",
+      title: t('skills.categories.database'),
       skills: [
         { name: "MongoDB", icon: SiMongodb, color: "#47a248", glowColor: "green-600" },
         { name: "PostgreSQL", icon: SiPostgresql, color: "#47a248", glowColor: "green-600" },
@@ -102,7 +104,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Cloud & AWS",
+      title: t('skills.categories.cloud'),
       skills: [
         { name: "AWS", icon: SiAmazon, color: "#ff9900", glowColor: "orange-500" },
         { name: "S3", icon: SiAmazon, color: "#569a31", glowColor: "green-600" },
@@ -111,7 +113,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Deploy & Hosting",
+      title: t('skills.categories.deploy'),
       skills: [
         { name: "Vercel", icon: SiVercel, color: "#ffffff", glowColor: "white" },
         { name: "Render", icon: SiRender, color: "#46e3b7", glowColor: "emerald-400" },
@@ -119,7 +121,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "DevOps & Tools",
+      title: t('skills.categories.devops'),
       skills: [
         { name: "Docker", icon: SiDocker, color: "#2496ed", glowColor: "blue-500" },
         { name: "Git", icon: SiGit, color: "#f05032", glowColor: "red-600" },
@@ -133,7 +135,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Architecture & Patterns",
+      title: t('skills.categories.architecture'),
       skills: [
         { name: "SOLID", icon: Building2, color: "#6366f1", glowColor: "indigo-500" },
         { name: "Clean Architecture", icon: Building, color: "#10b981", glowColor: "emerald-500" },
@@ -162,16 +164,16 @@ export default function TechStack() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+            className="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400"
           >
-            Minhas Skills
+            {t('skills.title')}
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-32 h-1.5 bg-blue-500 mx-auto mb-6 origin-center rounded-full"
+            className="w-32 h-1.5 bg-brand-500 mx-auto mb-6 origin-center rounded-full"
           ></motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -180,7 +182,7 @@ export default function TechStack() {
             viewport={{ once: true }}
             className="text-lg md:text-xl text-gray-300 font-light"
           >
-            Tecnologias e ferramentas que domino
+            {t('skills.description')}
           </motion.p>
         </motion.div>
 
@@ -193,7 +195,7 @@ export default function TechStack() {
               transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              <h3 className="text-2xl font-semibold text-white mb-6 pl-4 border-l-4 border-blue-500">
+              <h3 className="text-2xl font-semibold text-white mb-6 pl-4 border-l-4 border-brand-500">
                 {category.title}
               </h3>
 
@@ -227,8 +229,8 @@ export default function TechStack() {
                         className="relative w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 backdrop-blur-md bg-white/5 border border-white/10 shadow-lg shadow-black/20 group-hover:bg-white/10 group-hover:border-white/30"
                       >
                         {/* Efeito de brilho */}
-                        <div className={`absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm ${tech.glowColor ? `border-${tech.glowColor}` : 'border-blue-500'}`} style={{ borderColor: tech.color }} />
-                        <div className={`absolute inset-0 rounded-xl border opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${tech.glowColor ? `border-${tech.glowColor}` : 'border-blue-500'}`} style={{ borderColor: tech.color }} />
+                        <div className={`absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm ${tech.glowColor ? `border-${tech.glowColor}` : 'border-brand-500'}`} style={{ borderColor: tech.color }} />
+                        <div className={`absolute inset-0 rounded-xl border opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${tech.glowColor ? `border-${tech.glowColor}` : 'border-brand-500'}`} style={{ borderColor: tech.color }} />
 
                         {/* Ícone */}
                         <IconComponent

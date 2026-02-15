@@ -20,7 +20,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -51,7 +51,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
             onClick={onClose}
           />
-          
+
           {/* Modal Content */}
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
             <motion.div
@@ -74,7 +74,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
                   className={cn(
                     "p-2 rounded-lg text-neutral-400 hover:text-neutral-100",
                     "hover:bg-neutral-700 transition-colors duration-100",
-                    "focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                    "focus:outline-none focus:ring-2 focus:ring-brand-500/50"
                   )}
                   aria-label="Fechar modal"
                 >

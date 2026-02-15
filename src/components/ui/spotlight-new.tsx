@@ -27,11 +27,11 @@ export const Spotlight = ({
 }: SpotlightProps = {}) => {
   // Gradientes padrão
   const gradients = {
-    first: "radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 85%, .08) 0, hsla(210, 100%, 55%, .02) 50%, hsla(210, 100%, 45%, 0) 80%)",
-    second: "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 85%, .06) 0, hsla(210, 100%, 55%, .02) 80%, transparent 100%)",
-    third: "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 85%, .04) 0, hsla(210, 100%, 45%, .02) 80%, transparent 100%)"
+    first: "radial-gradient(68.54% 68.72% at 55.02% 31.46%, color-mix(in srgb, var(--brand-200), transparent 92%) 0, color-mix(in srgb, var(--brand-500), transparent 98%) 50%, transparent 80%)",
+    second: "radial-gradient(50% 50% at 50% 50%, color-mix(in srgb, var(--brand-200), transparent 94%) 0, color-mix(in srgb, var(--brand-500), transparent 98%) 80%, transparent 100%)",
+    third: "radial-gradient(50% 50% at 50% 50%, color-mix(in srgb, var(--brand-200), transparent 96%) 0, color-mix(in srgb, var(--brand-600), transparent 98%) 80%, transparent 100%)"
   };
-  
+
   const finalGradientFirst = gradientFirst || gradients.first;
   const finalGradientSecond = gradientSecond || gradients.second;
   const finalGradientThird = gradientThird || gradients.third;
