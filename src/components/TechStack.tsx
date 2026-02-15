@@ -46,6 +46,7 @@ import {
   Building,
   Workflow
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TechItem {
   name: string;
@@ -55,10 +56,11 @@ interface TechItem {
 }
 
 export default function TechStack() {
+  const { t } = useLanguage();
 
   const techCategories = [
     {
-      title: "Frontend",
+      title: t('skills.categories.frontend'),
       skills: [
         { name: "HTML", icon: SiHtml5, color: "#e34f26", glowColor: "red-500" },
         { name: "CSS", icon: SiCss3, color: "#1572b6", glowColor: "blue-500" },
@@ -75,7 +77,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Backend",
+      title: t('skills.categories.backend'),
       skills: [
         { name: "Node.js", icon: SiNodedotjs, color: "#339933", glowColor: "green-500" },
         { name: "Python", icon: SiPython, color: "#3776ab", glowColor: "blue-600" },
@@ -92,7 +94,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Database",
+      title: t('skills.categories.database'),
       skills: [
         { name: "MongoDB", icon: SiMongodb, color: "#47a248", glowColor: "green-600" },
         { name: "PostgreSQL", icon: SiPostgresql, color: "#47a248", glowColor: "green-600" },
@@ -102,7 +104,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Cloud & AWS",
+      title: t('skills.categories.cloud'),
       skills: [
         { name: "AWS", icon: SiAmazon, color: "#ff9900", glowColor: "orange-500" },
         { name: "S3", icon: SiAmazon, color: "#569a31", glowColor: "green-600" },
@@ -111,7 +113,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Deploy & Hosting",
+      title: t('skills.categories.deploy'),
       skills: [
         { name: "Vercel", icon: SiVercel, color: "#ffffff", glowColor: "white" },
         { name: "Render", icon: SiRender, color: "#46e3b7", glowColor: "emerald-400" },
@@ -119,7 +121,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "DevOps & Tools",
+      title: t('skills.categories.devops'),
       skills: [
         { name: "Docker", icon: SiDocker, color: "#2496ed", glowColor: "blue-500" },
         { name: "Git", icon: SiGit, color: "#f05032", glowColor: "red-600" },
@@ -133,7 +135,7 @@ export default function TechStack() {
       ]
     },
     {
-      title: "Architecture & Patterns",
+      title: t('skills.categories.architecture'),
       skills: [
         { name: "SOLID", icon: Building2, color: "#6366f1", glowColor: "indigo-500" },
         { name: "Clean Architecture", icon: Building, color: "#10b981", glowColor: "emerald-500" },
@@ -164,7 +166,7 @@ export default function TechStack() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
           >
-            Minhas Skills
+            {t('skills.title')}
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
@@ -180,7 +182,7 @@ export default function TechStack() {
             viewport={{ once: true }}
             className="text-lg md:text-xl text-gray-300 font-light"
           >
-            Tecnologias e ferramentas que domino
+            {t('skills.description')}
           </motion.p>
         </motion.div>
 

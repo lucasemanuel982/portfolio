@@ -30,7 +30,7 @@ export const TextGenerateEffect = ({
         delay: stagger(staggerDelay),
       }
     );
-  }, [animate, duration, filter, staggerDelay]);
+  }, [animate, duration, filter, staggerDelay, words]);
 
   const renderWords = () => {
     return (

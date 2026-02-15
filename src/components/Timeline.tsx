@@ -5,13 +5,14 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Modal } from "@/components/ui/modal";
 import { Button } from "@/components/ui/button";
-import { 
-  IconCalendar, 
-  IconMapPin, 
+import {
+  IconCalendar,
+  IconMapPin,
   IconTrophy,
   IconCode,
   IconInfoCircle,
 } from "@tabler/icons-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TimelineEvent {
   id: string;
@@ -28,87 +29,60 @@ interface TimelineEvent {
 }
 
 export default function Timeline() {
+  const { t, translations } = useLanguage();
+
   const timelineEvents: TimelineEvent[] = [
     {
       id: '1',
-      title: 'Desenvolvedor Full Stack Júnior',
+      title: t('timeline.jobs.devJunior.title'),
       company: 'Empresa Atual',
-      location: 'Guarabira, PB',
+      location: t('timeline.jobs.devJunior.location'),
       period: '2023 - 2024',
-      description: 'Responsável pelo desenvolvimento/manutenção de um e-commerce de produtos/softwares tecnologicos.',
-      detailedDescription: 'Fui peça-chave na construção de uma loja online, dinamizando funcionalidades críticas como o cadastro e edição de produtos (com características e fotos). O fluxo completo de checkout de pagamento também foi minha responsabilidade, onde atuei desde a implementação até a resolução proativa de bugs. Minhas principais tecnologias utilizadas foram Node.js (Express), JavaScript, PHP (Ignite) e Bootstrap, além da integração com AWS S3 para gerenciamento de arquivos. Além disso, atuei com a sustentação de projetos, garantindo a estabilidade e o bom funcionamento de soluções de rastreamento. Colaborei ativamente em equipe utilizando GitHub, seguindo metodologias ágeis (sprints) para assegurar a entrega de soluções robustas e adaptáveis. Participei ativamente no design e arquitetura de sistemas, focando sempre na otimização de aplicações para melhorar a eficiência operacional e a experiência do usuário.',
-      achievements: [
-        'Desenvolvimento com PHP, MySQL, Node.js, Bootstrap, HTML, CSS, JavaScript, jQuery, TypeScript, Express.js, Docker, API Rest',
-        'Integração com API de pagamentos, SMS e Email',
-        'Criação de e-mail marketing para envio de newsletters',
-        'Criação de sistema de gestão de produtos/pedidos',
-        'Integração com AWS S3 para gerenciamento de arquivos',
-        'Sustentação de projetos de rastreamento',
-        'Criação de relatórios com agGrid JS e agCharts',
-      ],
+      description: t('timeline.jobs.devJunior.description'),
+      detailedDescription: t('timeline.jobs.devJunior.detailedDescription'),
+      achievements: translations.timeline?.jobs?.devJunior?.achievements || [],
       type: 'job',
       icon: <IconCode />
     },
     {
       id: '2',
-      title: 'Team Leader  - Desenvolvedor Full Stack Júnior',
+      title: t('timeline.jobs.teamLeadJunior.title'),
       company: 'Empresa Atual',
-      location: 'Garanhuns, PE',
+      location: t('timeline.jobs.teamLeadJunior.location'),
       period: '2024',
-      description: 'Team Leader de 3 projetos simultâneos, desenvolvimento de soluções web escaláveis e integração de sistemas, com foco em monitoramento de veículos.',
-      achievements: [
-        'Revisão de código, correções de bugs e melhorias de performance',
-        'Criação de cards/requisitos para entrega de projetos',
-        'Criação de relatórios com agGrid JS e agCharts',
-        'Criação de cards/requisitos para entrega de projetos',
-      ],
+      description: t('timeline.jobs.teamLeadJunior.description'),
+      achievements: translations.timeline?.jobs?.teamLeadJunior?.achievements || [],
       type: 'job',
       icon: <IconCode />
     },
     {
       id: '3',
-      title: 'Prêmio de Excelência',
+      title: t('timeline.jobs.award.title'),
       company: 'Empresa Atual',
-      location: 'Garanhuns, PE',
+      location: t('timeline.jobs.award.location'),
       period: '2024',
-      description: 'Reconhecimento por contribuição excepcional e qualidade de código.',
+      description: t('timeline.jobs.award.description'),
       image: '/premio.jpg',
-      achievements: [
-        'Código limpo com poucas reprovações em reviews',
-        'Entrega consistente dentro dos prazos',
-        'Inovação em processos de desenvolvimento'
-      ],
+      achievements: translations.timeline?.jobs?.award?.achievements || [],
       type: 'achievement',
       icon: <IconTrophy />
     },
     {
       id: '4',
-      title: 'Team Leader  - Desenvolvedor Full Stack Pleno',
+      title: t('timeline.jobs.teamLeadPleno.title'),
       company: 'Empresa Atual',
-      location: 'Garanhuns, PE',
+      location: t('timeline.jobs.teamLeadPleno.location'),
       period: '2024 - Atual',
-      description: 'Team Leader de 4 projetos simultâneos, desenvolvimento de soluções web escaláveis e integração de sistemas, com foco em monitoramento de veículos.',
-      detailedDescription: 'Liderança técnica com foco em resultados: em três projetos distintos, todos os bugs foram resolvidos e o backlog completamente limpo, atuando diretamente nas correções, orientando a equipe e implementando novas funcionalidades. Alta dominância em desenvolvimento full stack: JavaScript (jQuery), TypeScript, Node.js (Socket, Express, DynamoDB, Redis), PHP (CodeIgniter), Bootstrap, AWS e Docker. Experiência robusta na implementação de filas para alto volume de dados, otimizando o processamento e reduzindo gargalos, utilizando streams. Forte atuação em arquitetura e design de sistemas, incluindo implementação de novos layouts e "white labels" personalizados para atender às demandas de clientes e melhorar a experiência do usuário. Colaboração ativa em sprints ágeis utilizando GitHub, JIRA, Confluence e Bitbucket, com entregas contínuas e adaptação rápida a mudanças. Elaboração de documentações técnicas detalhadas (Swagger) para uso interno e integração com parceiros.',
-      achievements: [
-        'Especialização em React e Node.js',
-        'Participação em 10+ projetos diferentes',
-        'Certificação em metodologias ágeis',
-        'Criação de cards/requisitos para entrega de projetos',
-        'Criação de relatórios com agGrid JS e agCharts',
-        'Validação de requisitos com POs e entregas dentro do prazo',
-        'Criação de scripts e soluções que reduziram retrabalho e aumentaram a produtividade',
-        'Melhoria de sistemas existentes, reduzindo tempo de resposta e aumentando a eficiência',
-        'Criação de sistemas de monitoramento de veículos',
-        'Criação de sistemas de rastreamento de veículos',
-        'Criação de sistemas de gerenciamento de veículos',
-      ],
+      description: t('timeline.jobs.teamLeadPleno.description'),
+      detailedDescription: t('timeline.jobs.teamLeadPleno.detailedDescription'),
+      achievements: translations.timeline?.jobs?.teamLeadPleno?.achievements || [],
       type: 'job',
       icon: <IconCode />
     },
   ];
 
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
@@ -125,9 +99,9 @@ export default function Timeline() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
-            Trajetória Profissional
+            {t('timeline.title')}
           </h2>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.3, delay: 0.1 }}
@@ -140,13 +114,13 @@ export default function Timeline() {
         <div className="relative">
           {/* Linha central da timeline */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-500 transform md:-translate-x-0.5" />
-          
+
           {timelineEvents.map((event, index) => (
-            <TimelineItem 
-              key={event.id} 
-              event={event} 
-              index={index} 
-              isLeft={index % 2 === 0} 
+            <TimelineItem
+              key={event.id}
+              event={event}
+              index={index}
+              isLeft={index % 2 === 0}
             />
           ))}
         </div>
@@ -162,14 +136,15 @@ interface TimelineItemProps {
 }
 
 const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
+  const { t } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 50, x: isLeft ? -50 : 50 }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
-      transition={{ 
-        duration: 0.3, 
+      transition={{
+        duration: 0.3,
         delay: index * 0.1,
         ease: "easeOut"
       }}
@@ -182,7 +157,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
     >
       {/* Conteúdo do card */}
       <motion.div
-        whileHover={{ 
+        whileHover={{
           scale: 1.02,
           transition: { duration: 0.1 }
         }}
@@ -195,7 +170,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
         <div className="bg-neutral-800 rounded-xl p-6 shadow-lg border border-neutral-700 relative overflow-hidden">
           {/* Efeito de hover com gradiente */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 bg-gradient-to-br from-blue-900/20 to-transparent pointer-events-none" />
-          
+
           {/* Linhas animadas no hover */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-250 delay-50" />
@@ -243,7 +218,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
             {/* Achievements */}
             <div className="space-y-2 mb-4">
               <h4 className="text-sm font-semibold text-neutral-100">
-                Principais atividades:
+                {t('timeline.labels.activities')}
               </h4>
               <ul className="space-y-1">
                 {event.achievements.map((achievement, idx) => (
@@ -270,7 +245,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
               className="w-full md:w-auto"
             >
               <IconInfoCircle className="w-4 h-4" />
-              Mais informações
+              {t('timeline.labels.moreInfo')}
             </Button>
           </div>
         </div>
@@ -317,7 +292,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
           {/* Principais atividades */}
           <div className="space-y-2 mb-4">
             <h4 className="text-sm font-semibold text-neutral-100">
-              Principais atividades:
+              {t('timeline.labels.activities')}
             </h4>
             <ul className="space-y-1">
               {event.achievements.map((achievement, idx) => (
@@ -336,7 +311,7 @@ const TimelineItem = ({ event, index, isLeft }: TimelineItemProps) => {
 
       {/* Ponto central da timeline */}
       <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-neutral-900 transform -translate-x-2 md:-translate-x-2 z-10" />
-      
+
       {/* Ponto animado no hover */}
       <motion.div
         className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-400 rounded-full transform -translate-x-2 md:-translate-x-2 z-5"

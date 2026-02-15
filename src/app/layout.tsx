@@ -5,6 +5,7 @@ import SuppressHydrationWarning from "@/components/SuppressHydrationWarning";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
 import { FloatingElements } from "@/components/FloatingElements";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,11 +68,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
         suppressHydrationWarning
       >
-        <GoogleAnalytics />
-        <SuppressHydrationWarning />
-        <ScrollIndicator />
-        <FloatingElements />
-        {children}
+        <LanguageProvider>
+          <GoogleAnalytics />
+          <SuppressHydrationWarning />
+          <ScrollIndicator />
+          <FloatingElements />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
