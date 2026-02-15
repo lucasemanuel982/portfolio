@@ -5,7 +5,7 @@ import { langPT } from '@/locales/langPT';
 import { langEN } from '@/locales/langEN';
 import { langES } from '@/locales/langES';
 
-type Language = 'pt' | 'en' | 'es';
+export type Language = 'pt' | 'en' | 'es';
 type Translations = typeof langPT;
 
 interface LanguageContextType {
@@ -60,10 +60,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     const t = (key: string) => {
         const keys = key.split('.');
-        let value: any = translations;
+        let value: Record<string, any> | string = translations;
         for (const k of keys) {
             if (value && typeof value === 'object' && k in value) {
-                value = value[k];
+                value = (value as Record<string, any>)[k];
             } else {
                 return key; // Return the key if translation is missing
             }

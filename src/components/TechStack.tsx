@@ -58,7 +58,7 @@ interface TechItem {
 export default function TechStack() {
   const { t } = useLanguage();
 
-  const techCategories = [
+  const techCategories: { title: string; skills: TechItem[] }[] = [
     {
       title: t('skills.categories.frontend'),
       skills: [

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import { ExternalLink } from "lucide-react";
-import { SiGithub, SiRender, SiVercel } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 import { motion } from "motion/react";
 import { useLanguage } from "@/contexts/LanguageContext";
 

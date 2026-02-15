@@ -1,9 +1,7 @@
 'use client'
 
 import { motion } from "motion/react";
-import Link from 'next/link';
 import { SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si";
-import { HiMail } from 'react-icons/hi';
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {

@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { motion, AnimatePresence } from "motion/react"
 import { useState, useEffect } from "react"
-import { useLanguage } from "@/contexts/LanguageContext"
+import { useLanguage, Language } from "@/contexts/LanguageContext"
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage()
@@ -204,7 +204,8 @@ export function Header() {
             {flags.map((flag) => (
               <motion.button
                 key={flag.code}
-                onClick={() => setLanguage(flag.code as any)}
+                onClick={() => setLanguage(flag.code as Language)}
+
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className={`
