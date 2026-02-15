@@ -134,7 +134,7 @@ const projects: Project[] = [
     tags: ["Node.js", "Express.js", "Redis", "TypeScript", "MySQL", "Docker", "API Rest", "HTML", "CSS", "JavaScript"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Landing Page - SAAS - Xora",
     description: "Landing Page para um SAAS Edição de vídeos, onde o sistema é responsável por editar vídeos de forma automática.",
     image: "/xora.png",
