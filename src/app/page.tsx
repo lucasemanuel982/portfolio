@@ -7,9 +7,10 @@ import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { motion } from "motion/react";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Lazy loading de componentes pesados
-const FeaturesSectionDemo2 = dynamic(() => import("@/components/features-section-demo-2"), {
+const FeaturesSectionAboutMe = dynamic(() => import("@/components/AboutMe"), {
   loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div></div>
 });
 
@@ -36,6 +37,7 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 export default function Home() {
   // Rastrear visualizações de página
   usePageTracking();
+  const { t } = useLanguage();
 
   return (
     <main className="relative min-h-screen">
@@ -46,7 +48,7 @@ export default function Home() {
           <Hero />
         </section>
         <section id="sobre" className="pt-16">
-          <motion.section 
+          <motion.section
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -54,16 +56,16 @@ export default function Home() {
             className="pb-8 px-4 sm:px-6 lg:px-8"
           >
             <div className="max-w-7xl mx-auto">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.25, delay: 0.1 }}
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl font-bold text-center mb-4 text-neutral-100"
               >
-                Sobre mim
+                {t('home.aboutTitle')}
               </motion.h2>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scaleX: 0 }}
                 whileInView={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
@@ -72,7 +74,7 @@ export default function Home() {
               ></motion.div>
             </div>
           </motion.section>
-          <FeaturesSectionDemo2  />
+          <FeaturesSectionAboutMe />
           <Timeline />
         </section>
         <section id="skills" className="pt-16">

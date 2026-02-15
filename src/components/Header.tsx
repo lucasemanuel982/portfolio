@@ -3,18 +3,55 @@
 import Image from "next/image"
 import { motion, AnimatePresence } from "motion/react"
 import { useState, useEffect } from "react"
+import { useLanguage, Language } from "@/contexts/LanguageContext"
 
 export function Header() {
+  const { language, setLanguage, t } = useLanguage()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [isManualScroll, setIsManualScroll] = useState(false)
 
   const menuItems = [
-    { id: 'home', label: 'HOME', href: '#home' },
-    { id: 'sobre', label: 'SOBRE', href: '#sobre' },
-    { id: 'skills', label: 'SKILLS', href: '#skills' },
-    { id: 'projetos', label: 'PROJETOS', href: '#projetos' },
-    { id: 'contato', label: 'CONTATO', href: '#contato' }
+    { id: 'home', label: t('header.home'), href: '#home' },
+    { id: 'sobre', label: t('header.about'), href: '#sobre' },
+    { id: 'skills', label: t('header.skills'), href: '#skills' },
+    { id: 'projetos', label: t('header.projects'), href: '#projetos' },
+    { id: 'contato', label: t('header.contact'), href: '#contato' }
+  ]
+
+  const flags = [
+    {
+      code: 'pt',
+      label: 'Português',
+      icon: (
+        <svg width="24" height="16" viewBox="0 0 24 16" className="rounded-sm shadow-sm">
+          <rect width="24" height="16" fill="#009c3b" />
+          <polygon points="12,14 22,8 12,2 2,8" fill="#ffdf00" />
+          <circle cx="12" cy="8" r="3.5" fill="#002776" />
+        </svg>
+      )
+    },
+    {
+      code: 'en',
+      label: 'English',
+      icon: (
+        <svg width="24" height="16" viewBox="0 0 24 16" className="rounded-sm shadow-sm">
+          <rect width="24" height="16" fill="#B22234" />
+          <path d="M0 0h24v2.5h-24zm0 5h24v2.5h-24zm0 5h24v2.5h-24z" fill="#fff" />
+          <rect width="10" height="8" fill="#3C3B6E" />
+        </svg>
+      )
+    },
+    {
+      code: 'es',
+      label: 'Español',
+      icon: (
+        <svg width="24" height="16" viewBox="0 0 24 16" className="rounded-sm shadow-sm">
+          <rect width="24" height="16" fill="#AA151B" />
+          <rect y="4" width="24" height="8" fill="#F1BF00" />
+        </svg>
+      )
+    }
   ]
 
   const toggleMobileMenu = () => {
@@ -62,7 +99,7 @@ export function Header() {
   }, [isManualScroll])
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.15, ease: "easeOut" }}
@@ -71,27 +108,27 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between h-14 sm:h-16 min-w-0">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.125, delay: 0.05 }}
             className="flex items-center gap-2 sm:gap-3 min-w-0 flex-shrink-0"
           >
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ duration: 0.05 }}
               className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-lg ring-1 sm:ring-2 ring-blue-400/30 ring-offset-1 sm:ring-offset-2 ring-offset-black/50 flex-shrink-0"
             >
-              <Image 
-                src="/Perfil.png" 
-                alt="Lucas Emanuel - Desenvolvedor Full Stack" 
-                width={40} 
+              <Image
+                src="/Perfil.png"
+                alt="Lucas Emanuel - Desenvolvedor Full Stack"
+                width={40}
                 height={40}
                 className="w-full h-full object-cover"
                 quality={100}
               />
             </motion.div>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1 }}
@@ -102,7 +139,7 @@ export function Header() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <motion.nav 
+          <motion.nav
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.125, delay: 0.1 }}
@@ -121,20 +158,20 @@ export function Header() {
                 }}
                 className={`
                   relative px-4 py-2 text-sm font-medium transition-all duration-150 group
-                  ${activeSection === item.id 
-                    ? 'text-blue-400' 
+                  ${activeSection === item.id
+                    ? 'text-blue-400'
                     : 'text-gray-300 hover:text-white'
                   }
                 `}
               >
                 <span className="relative z-10">{item.label}</span>
-                
+
                 {/* Background hover effect */}
                 <motion.div
                   className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/20 to-blue-400/20 opacity-0 group-hover:opacity-100"
                   transition={{ duration: 0.075 }}
                 />
-                
+
                 {/* Active indicator */}
                 {activeSection === item.id && (
                   <motion.div
@@ -144,7 +181,7 @@ export function Header() {
                     transition={{ type: "spring", stiffness: 800, damping: 40 }}
                   />
                 )}
-                
+
                 {/* Bottom border */}
                 <motion.div
                   className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300"
@@ -156,6 +193,42 @@ export function Header() {
               </motion.button>
             ))}
           </motion.nav>
+
+          {/* Language Flags */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.125, delay: 0.2 }}
+            className="flex items-center gap-3 sm:gap-4 ml-auto md:ml-0 mr-4 md:mr-0"
+          >
+            {flags.map((flag) => (
+              <motion.button
+                key={flag.code}
+                onClick={() => setLanguage(flag.code as Language)}
+
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className={`
+                  relative flex items-center justify-center rounded-sm overflow-hidden transition-all duration-200 outline-none
+                  ${language === flag.code
+                    ? 'ring-2 ring-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.6)] z-10 scale-110'
+                    : 'opacity-50 hover:opacity-100 grayscale hover:grayscale-0'
+                  }
+                `}
+                title={flag.label}
+              >
+                {flag.icon}
+                {language === flag.code && (
+                  <motion.div
+                    layoutId="activeFlag"
+                    className="absolute inset-0 bg-blue-500/10"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                )}
+              </motion.button>
+            ))}
+          </motion.div>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -216,8 +289,8 @@ export function Header() {
                   }}
                   className={`
                     block px-4 py-3 text-lg font-medium rounded-lg transition-all duration-150 text-left w-full
-                    ${activeSection === item.id 
-                      ? 'text-blue-400 bg-blue-500/20 border-l-4 border-blue-400' 
+                    ${activeSection === item.id
+                      ? 'text-blue-400 bg-blue-500/20 border-l-4 border-blue-400'
                       : 'text-gray-300 hover:text-white hover:bg-white/10'
                     }
                   `}

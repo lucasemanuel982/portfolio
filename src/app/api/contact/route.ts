@@ -3,6 +3,12 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
+    if (!request.body) {
+      return NextResponse.json(
+        { error: 'Corpo da requisição vazio' },
+        { status: 400 }
+      );
+    }
     const { email, name, subject, message } = await request.json();
 
     // Validação dos campos obrigatórios
