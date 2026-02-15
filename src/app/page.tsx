@@ -11,27 +11,27 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 // Lazy loading de componentes pesados
 const FeaturesSectionAboutMe = dynamic(() => import("@/components/AboutMe"), {
-  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div></div>
+  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div></div>
 });
 
 const Timeline = dynamic(() => import("@/components/Timeline"), {
-  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div></div>
+  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div></div>
 });
 
 const TechStack = dynamic(() => import("@/components/TechStack"), {
-  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div></div>
+  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div></div>
 });
 
 const Projects = dynamic(() => import("@/components/Projects"), {
-  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div></div>
+  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div></div>
 });
 
 const Contact = dynamic(() => import("@/components/Contact"), {
-  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div></div>
+  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div></div>
 });
 
 const Footer = dynamic(() => import("@/components/Footer"), {
-  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div></div>
+  loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div></div>
 });
 
 export default function Home() {
@@ -70,7 +70,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="w-24 h-1 bg-blue-500 mx-auto mb-12 origin-center"
+                className="w-24 h-1 bg-brand-500 mx-auto mb-12 origin-center"
               ></motion.div>
             </div>
           </motion.section>

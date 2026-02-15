@@ -38,7 +38,7 @@ export function FloatingDock({
       >
         {items.map((item, index) => {
           const isEmailItem = !!item.onClick;
-          
+
           return (
             <motion.a
               key={item.title}
@@ -63,10 +63,10 @@ export function FloatingDock({
                 ease: "easeOut",
               }}
             >
-            {/* Efeito de brilho azul - igual aos cards das skills */}
-            <div className="absolute inset-0 rounded-xl border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150 blur-sm" />
-            <div className="absolute inset-0 rounded-xl border border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
-            
+              {/* Efeito de brilho azul - igual aos cards das skills */}
+              <div className="absolute inset-0 rounded-xl border-2 border-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150 blur-sm" />
+              <div className="absolute inset-0 rounded-xl border border-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+
               {/* Ícone */}
               <div className="relative z-10">
                 {item.icon}

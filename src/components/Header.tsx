@@ -4,6 +4,7 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "motion/react"
 import { useState, useEffect } from "react"
 import { useLanguage, Language } from "@/contexts/LanguageContext"
+import { ThemeColorPicker } from "@/components/ThemeColorPicker"
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage()
@@ -103,7 +104,7 @@ export function Header() {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.15, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10 w-full overflow-hidden"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10 w-full"
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between h-14 sm:h-16 min-w-0">
@@ -117,7 +118,7 @@ export function Header() {
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ duration: 0.05 }}
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-lg ring-1 sm:ring-2 ring-blue-400/30 ring-offset-1 sm:ring-offset-2 ring-offset-black/50 flex-shrink-0"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-lg ring-1 sm:ring-2 ring-brand-400/30 ring-offset-1 sm:ring-offset-2 ring-offset-black/50 flex-shrink-0"
             >
               <Image
                 src="/Perfil.png"
@@ -132,7 +133,7 @@ export function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1 }}
-              className="font-bold text-sm sm:text-lg bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent whitespace-nowrap truncate"
+              className="font-bold text-sm sm:text-lg bg-gradient-to-r from-brand-400 to-brand-300 bg-clip-text text-transparent whitespace-nowrap truncate"
             >
               Lucas Emanuel
             </motion.span>
@@ -159,7 +160,7 @@ export function Header() {
                 className={`
                   relative px-4 py-2 text-sm font-medium transition-all duration-150 group
                   ${activeSection === item.id
-                    ? 'text-blue-400'
+                    ? 'text-brand-400'
                     : 'text-gray-300 hover:text-white'
                   }
                 `}
@@ -168,7 +169,7 @@ export function Header() {
 
                 {/* Background hover effect */}
                 <motion.div
-                  className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/20 to-blue-400/20 opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 rounded-lg bg-gradient-to-r from-brand-500/20 to-brand-400/20 opacity-0 group-hover:opacity-100"
                   transition={{ duration: 0.075 }}
                 />
 
@@ -176,7 +177,7 @@ export function Header() {
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/30 to-blue-400/30"
+                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-brand-500/30 to-brand-400/30"
                     initial={false}
                     transition={{ type: "spring", stiffness: 800, damping: 40 }}
                   />
@@ -184,7 +185,7 @@ export function Header() {
 
                 {/* Bottom border */}
                 <motion.div
-                  className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300"
+                  className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-brand-400 to-brand-300"
                   initial={{ width: 0 }}
                   animate={{ width: activeSection === item.id ? "100%" : 0 }}
                   whileHover={{ width: "100%" }}
@@ -211,7 +212,7 @@ export function Header() {
                 className={`
                   relative flex items-center justify-center rounded-sm overflow-hidden transition-all duration-200 outline-none
                   ${language === flag.code
-                    ? 'ring-2 ring-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.6)] z-10 scale-110'
+                    ? 'ring-2 ring-brand-400 shadow-[0_0_12px_var(--color-brand-500)] z-10 scale-110'
                     : 'opacity-50 hover:opacity-100 grayscale hover:grayscale-0'
                   }
                 `}
@@ -221,13 +222,23 @@ export function Header() {
                 {language === flag.code && (
                   <motion.div
                     layoutId="activeFlag"
-                    className="absolute inset-0 bg-blue-500/10"
+                    className="absolute inset-0 bg-brand-500/10"
                     initial={false}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 )}
               </motion.button>
             ))}
+          </motion.div>
+
+          {/* Theme Color Picker */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.125, delay: 0.25 }}
+            className="flex items-center ml-2 sm:ml-4 mr-2"
+          >
+            <ThemeColorPicker />
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -290,7 +301,7 @@ export function Header() {
                   className={`
                     block px-4 py-3 text-lg font-medium rounded-lg transition-all duration-150 text-left w-full
                     ${activeSection === item.id
-                      ? 'text-blue-400 bg-blue-500/20 border-l-4 border-blue-400'
+                      ? 'text-brand-400 bg-brand-500/20 border-l-4 border-brand-400'
                       : 'text-gray-300 hover:text-white hover:bg-white/10'
                     }
                   `}

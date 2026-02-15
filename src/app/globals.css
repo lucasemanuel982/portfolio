@@ -41,6 +41,17 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
 }
 
 :root {
@@ -76,6 +87,20 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Dynamic Brand Colors */
+  --brand-500: #3b82f6;
+  /* Default Blue */
+  --brand-50: color-mix(in srgb, var(--brand-500), white 95%);
+  --brand-100: color-mix(in srgb, var(--brand-500), white 90%);
+  --brand-200: color-mix(in srgb, var(--brand-500), white 80%);
+  --brand-300: color-mix(in srgb, var(--brand-500), white 60%);
+  --brand-400: color-mix(in srgb, var(--brand-500), white 30%);
+  --brand-600: color-mix(in srgb, var(--brand-500), black 20%);
+  --brand-700: color-mix(in srgb, var(--brand-500), black 40%);
+  --brand-800: color-mix(in srgb, var(--brand-500), black 60%);
+  --brand-900: color-mix(in srgb, var(--brand-500), black 80%);
+  --brand-950: color-mix(in srgb, var(--brand-500), black 90%);
 }
 
 .dark {
@@ -119,8 +144,10 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem; /* Espaçamento para o header fixo */
-    overflow-x: hidden; /* Previne scroll horizontal */
+    scroll-padding-top: 5rem;
+    /* Espaçamento para o header fixo */
+    overflow-x: hidden;
+    /* Previne scroll horizontal */
   }
 
   /* Suavização adicional para elementos específicos */
@@ -131,9 +158,11 @@
   body {
     @apply bg-background text-foreground;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Previne scroll horizontal */
+    overflow-x: hidden;
+    /* Previne scroll horizontal */
     width: 100%;
-    max-width: 100vw; /* Garante que o body não exceda a largura da viewport */
+    max-width: 100vw;
+    /* Garante que o body não exceda a largura da viewport */
   }
 
   /* Previne overflow horizontal em todos os elementos */
@@ -174,11 +203,9 @@
 
 @layer utilities {
   .portfolio-bg {
-    background: radial-gradient(
-      circle at center,
-      rgba(20, 20, 20, 0.8) 0%,
-      rgba(0, 0, 0, 1) 100%
-    );
+    background: radial-gradient(circle at center,
+        rgba(20, 20, 20, 0.8) 0%,
+        rgba(0, 0, 0, 1) 100%);
   }
 
   .text-shadow {

@@ -12,7 +12,7 @@ const Notebook3D = dynamic(() => import("./Notebook3D"), {
   loading: () => (
     <div className="w-full h-96 lg:h-[500px] flex items-center justify-center bg-neutral-900/30 rounded-xl">
       <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500 mx-auto mb-4"></div>
         <p className="text-neutral-400 text-sm">Carregando modelo 3D...</p>
       </div>
     </div>
@@ -103,7 +103,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-24 h-1 bg-blue-500 mx-auto mb-6 origin-center"
+            className="w-24 h-1 bg-brand-500 mx-auto mb-6 origin-center"
           />
         </motion.div>
 
@@ -146,7 +146,7 @@ export default function Contact() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="block w-full pl-10 pr-3 py-3 border border-neutral-800 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-neutral-900/50 text-white placeholder-neutral-500 transition-colors"
+                        className="block w-full pl-10 pr-3 py-3 border border-neutral-800 rounded-lg focus:ring-brand-500 focus:border-brand-500 bg-neutral-900/50 text-white placeholder-neutral-500 transition-colors"
                         placeholder={t('contact.form.name.placeholder')}
                       />
                     </div>
@@ -171,7 +171,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-150"
+                        className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all duration-150"
                         placeholder={t('contact.form.email.placeholder')}
                       />
                     </div>
@@ -196,7 +196,7 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
-                        className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-150"
+                        className="w-full pl-12 pr-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all duration-150"
                         placeholder={t('contact.form.subject.placeholder')}
                       />
                     </div>
@@ -219,7 +219,7 @@ export default function Contact() {
                       onChange={handleInputChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all duration-300 resize-none"
                       placeholder={t('contact.form.message.placeholder')}
                     />
                   </motion.div>
@@ -235,7 +235,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 disabled:from-neutral-600 disabled:to-neutral-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-150 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed cursor-pointer"
+                      className="w-full bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 disabled:from-neutral-600 disabled:to-neutral-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-150 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed cursor-pointer"
                     >
                       {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
                     </button>
