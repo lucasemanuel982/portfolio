@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Informações do desenvolvedor */}
           <div className="text-center md:text-left">
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
@@ -20,14 +20,14 @@ export default function Footer() {
               Layout desenvolvido por{' '}
               <span className="text-blue-500 font-medium">Lucas Emanuel</span>
             </motion.p>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, delay: 0.05 }}
               viewport={{ once: true }}
               className="text-neutral-500 text-xs mt-1"
             >
-              © 2025 Todos os direitos reservados
+              © 2026 Todos os direitos reservados
             </motion.p>
           </div>
 
@@ -45,8 +45,8 @@ export default function Footer() {
               whileTap={{ scale: 0.95 }}
               className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-150 border border-neutral-700/50 hover:border-blue-500/50"
             >
-              <SiGithub 
-                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150" 
+              <SiGithub
+                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150"
               />
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -69,8 +69,8 @@ export default function Footer() {
               whileTap={{ scale: 0.95 }}
               className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-150 border border-neutral-700/50 hover:border-blue-500/50"
             >
-              <SiLinkedin 
-                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150" 
+              <SiLinkedin
+                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150"
               />
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -93,8 +93,8 @@ export default function Footer() {
               whileTap={{ scale: 0.95 }}
               className="group relative p-3 rounded-full bg-neutral-800/50 hover:bg-neutral-700/50 transition-all duration-150 border border-neutral-700/50 hover:border-blue-500/50"
             >
-              <SiWhatsapp 
-                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150" 
+              <SiWhatsapp
+                className="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-150"
               />
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -109,7 +109,7 @@ export default function Footer() {
         </div>
 
         {/* Linha decorativa */}
-        <motion.div 
+        <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
