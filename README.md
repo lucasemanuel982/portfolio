@@ -2,7 +2,7 @@
 
 Portfólio pessoal desenvolvido com Next.js, apresentando meus projetos e habilidades como desenvolvedor Full Stack.
 
-## [Link do Projeto](https://portfolio-iota-nine-6xjhiwl0yw.vercel.app/)
+## [Link do Projeto](https://lucas-emanuel.vercel.app/)
 
 
 ## Tecnologias Utilizadas
