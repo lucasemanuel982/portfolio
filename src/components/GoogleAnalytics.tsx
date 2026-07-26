@@ -3,7 +3,6 @@ import Script from 'next/script';
 import { GA_TRACKING_ID } from '@/lib/analytics';
 
 export default function GoogleAnalytics() {
-  // Não renderizar se não tiver o ID
   if (!GA_TRACKING_ID) {
     return null;
   }
@@ -24,6 +23,7 @@ export default function GoogleAnalytics() {
             gtag('js', new Date());
             gtag('config', '${GA_TRACKING_ID}', {
               page_path: window.location.pathname,
+              send_page_view: true,
             });
           `,
         }}
