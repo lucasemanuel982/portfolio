@@ -72,10 +72,22 @@ export default function Timeline() {
       title: t('timeline.jobs.teamLeadPleno.title'),
       company: 'Empresa Atual',
       location: t('timeline.jobs.teamLeadPleno.location'),
-      period: '2024 - Atual',
+      period: '2024 - 2026',
       description: t('timeline.jobs.teamLeadPleno.description'),
       detailedDescription: t('timeline.jobs.teamLeadPleno.detailedDescription'),
       achievements: translations.timeline?.jobs?.teamLeadPleno?.achievements || [],
+      type: 'job',
+      icon: <IconCode />
+    },
+    {
+      id: '5',
+      title: t('timeline.jobs.arkmeds.title'),
+      company: 'Arkmeds',
+      location: t('timeline.jobs.arkmeds.location'),
+      period: '02/2026 - Atual',
+      description: t('timeline.jobs.arkmeds.description'),
+      detailedDescription: t('timeline.jobs.arkmeds.detailedDescription'),
+      achievements: translations.timeline?.jobs?.arkmeds?.achievements || [],
       type: 'job',
       icon: <IconCode />
     },

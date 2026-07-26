@@ -21,6 +21,15 @@ import {
   SiMysql,
   SiRedis,
   SiAmazon,
+  SiAmazons3,
+  SiAmazonec2,
+  SiAmazonecs,
+  SiAmazoncloudwatch,
+  SiAmazoncognito,
+  SiAmazonsqs,
+  SiAwslambda,
+  SiAwssecretsmanager,
+  SiGithubactions,
   SiLinux,
   SiDocker,
   SiGit,
@@ -44,7 +53,9 @@ import {
   Zap,
   Building2,
   Building,
-  Workflow
+  Workflow,
+  Megaphone,
+  CalendarClock
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -107,8 +118,16 @@ export default function TechStack() {
       title: t('skills.categories.cloud'),
       skills: [
         { name: "AWS", icon: SiAmazon, color: "#ff9900", glowColor: "orange-500" },
-        { name: "S3", icon: SiAmazon, color: "#569a31", glowColor: "green-600" },
-        { name: "EC2", icon: SiAmazon, color: "#ff9500", glowColor: "orange-600" },
+        { name: "S3", icon: SiAmazons3, color: "#569a31", glowColor: "green-600" },
+        { name: "EC2", icon: SiAmazonec2, color: "#ff9500", glowColor: "orange-600" },
+        { name: "ECS", icon: SiAmazonecs, color: "#ff9900", glowColor: "orange-500" },
+        { name: "Lambda", icon: SiAwslambda, color: "#ff9900", glowColor: "orange-500" },
+        { name: "SQS", icon: SiAmazonsqs, color: "#ff4f8b", glowColor: "pink-500" },
+        { name: "SNS", icon: Megaphone, color: "#ff9900", glowColor: "orange-500" },
+        { name: "EventBridge", icon: CalendarClock, color: "#ff9900", glowColor: "orange-500" },
+        { name: "CloudWatch", icon: SiAmazoncloudwatch, color: "#ff4f8b", glowColor: "pink-500" },
+        { name: "Cognito", icon: SiAmazoncognito, color: "#dd344c", glowColor: "red-500" },
+        { name: "Secrets Manager", icon: SiAwssecretsmanager, color: "#dd344c", glowColor: "red-500" },
         { name: "Linux", icon: SiLinux, color: "#fcc624", glowColor: "yellow-600" },
       ]
     },
@@ -127,6 +146,7 @@ export default function TechStack() {
         { name: "Git", icon: SiGit, color: "#f05032", glowColor: "red-600" },
         { name: "GitHub", icon: SiGithub, color: "#ffffff", glowColor: "white" },
         { name: "Bitbucket", icon: SiBitbucket, color: "#0052cc", glowColor: "blue-700" },
+        { name: "CI/CD", icon: SiGithubactions, color: "#2088ff", glowColor: "blue-500" },
         { name: "Swagger", icon: SiSwagger, color: "#85ea2d", glowColor: "green-400" },
         { name: "Postman", icon: SiPostman, color: "#ff6c37", glowColor: "orange-500" },
         { name: "Jira", icon: SiJira, color: "#0052cc", glowColor: "blue-700" },
