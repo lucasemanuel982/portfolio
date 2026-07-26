@@ -22,14 +22,28 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - name: Wait for Vercel deployment
-        uses: lewagon/wait-on-check-action@v1.3.4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          check-name: Vercel
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 20
-          allowed-conclusions: success
+      - name: Wait for Vercel check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          echo "Aguardando check Vercel no PR #$PR_NUMBER..."
+          for i in $(seq 1 60); do
+            STATUS=$(gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" 2>/dev/null | awk '/^Vercel[[:space:]]/ {print $2; exit}' || true)
+            echo "[$i] Vercel status: ${STATUS:-pending}"
+            if [ "$STATUS" = "pass" ]; then
+              echo "Vercel OK"
+              exit 0
+            fi
+            if [ "$STATUS" = "fail" ] || [ "$STATUS" = "failing" ]; then
+              echo "Vercel falhou"
+              exit 1
+            fi
+            sleep 20
+          done
+          echo "Timeout aguardando Vercel"
+          exit 1
 
       - name: Approve pull request
         uses: hmarr/auto-approve-action@v2
@@ -40,7 +54,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
+          STATE=$(gh pr view "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --json state --jq .state)
+          if [ "$STATE" = "MERGED" ]; then
+            echo "PR já mergeado"
+            exit 0
+          fi
           gh pr merge "${{ github.event.pull_request.number }}" \
             --repo "${{ github.repository }}" \
             --merge \
-            --delete-branch || true
+            --delete-branch

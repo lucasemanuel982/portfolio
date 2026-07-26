@@ -60,14 +60,28 @@ Será mergeado em \`development\` após o check da Vercel passar.")
           echo "Criado PR #$NUMBER"
           echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
 
-      - name: Wait for Vercel deployment
-        uses: lewagon/wait-on-check-action@v1.3.4
-        with:
-          ref: ${{ github.sha }}
-          check-name: Vercel
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 20
-          allowed-conclusions: success
+      - name: Wait for Vercel check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          set -euo pipefail
+          echo "Aguardando check Vercel no PR #$PR_NUMBER..."
+          for i in $(seq 1 60); do
+            STATUS=$(gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" 2>/dev/null | awk '/^Vercel[[:space:]]/ {print $2; exit}' || true)
+            echo "[$i] Vercel status: ${STATUS:-pending}"
+            if [ "$STATUS" = "pass" ]; then
+              echo "Vercel OK"
+              exit 0
+            fi
+            if [ "$STATUS" = "fail" ] || [ "$STATUS" = "failing" ]; then
+              echo "Vercel falhou"
+              exit 1
+            fi
+            sleep 20
+          done
+          echo "Timeout aguardando Vercel"
+          exit 1
 
       - name: Approve pull request
         uses: hmarr/auto-approve-action@v2
