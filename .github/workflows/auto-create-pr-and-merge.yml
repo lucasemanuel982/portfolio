@@ -68,19 +68,21 @@ Será mergeado em \`development\` após o check da Vercel passar.")
           set -euo pipefail
           echo "Aguardando check Vercel no PR #$PR_NUMBER..."
           for i in $(seq 1 60); do
-            STATUS=$(gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" 2>/dev/null | awk '/^Vercel[[:space:]]/ {print $2; exit}' || true)
+            STATUS=$(gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" --json name,state \
+              --jq '.[] | select(.name == "Vercel") | .state' | head -n 1 || true)
             echo "[$i] Vercel status: ${STATUS:-pending}"
-            if [ "$STATUS" = "pass" ]; then
+            if [ "$STATUS" = "SUCCESS" ]; then
               echo "Vercel OK"
               exit 0
             fi
-            if [ "$STATUS" = "fail" ] || [ "$STATUS" = "failing" ]; then
-              echo "Vercel falhou"
+            if [ "$STATUS" = "FAILURE" ] || [ "$STATUS" = "ERROR" ] || [ "$STATUS" = "CANCELLED" ]; then
+              echo "Vercel falhou: $STATUS"
               exit 1
             fi
-            sleep 20
+            sleep 15
           done
           echo "Timeout aguardando Vercel"
+          gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" || true
           exit 1
 
       - name: Approve pull request
