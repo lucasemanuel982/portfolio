@@ -86,6 +86,7 @@ Será mergeado em \`development\` após o check da Vercel passar.")
           exit 1
 
       - name: Approve pull request
+        continue-on-error: true
         uses: hmarr/auto-approve-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
