@@ -1,0 +1,94 @@
+name: Auto create PR and merge
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - development
+
+concurrency:
+  group: auto-pr-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  create-and-merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: read
+      statuses: read
+    steps:
+      - name: Create PR to development if missing
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ github.ref_name }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+        run: |
+          set -euo pipefail
+
+          EXISTING=$(gh pr list \
+            --repo "${{ github.repository }}" \
+            --head "$BRANCH" \
+            --base development \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "PR #$EXISTING já existe para $BRANCH"
+            echo "number=$EXISTING" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          TITLE=$(printf '%s\n' "$COMMIT_MSG" | head -n 1)
+          if [ -z "$TITLE" ]; then
+            TITLE="$BRANCH"
+          fi
+
+          URL=$(gh pr create \
+            --repo "${{ github.repository }}" \
+            --base development \
+            --head "$BRANCH" \
+            --title "$TITLE" \
+            --body "PR criado automaticamente a partir da branch \`$BRANCH\`.
+
+Será mergeado em \`development\` após o check da Vercel passar.")
+
+          NUMBER=$(printf '%s\n' "$URL" | grep -oE '[0-9]+$')
+          echo "Criado PR #$NUMBER"
+          echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for Vercel deployment
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: ${{ github.sha }}
+          check-name: Vercel
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 20
+          allowed-conclusions: success
+
+      - name: Approve pull request
+        uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ steps.pr.outputs.number }}
+
+      - name: Merge pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          set -euo pipefail
+
+          STATE=$(gh pr view "$PR_NUMBER" --repo "${{ github.repository }}" --json state --jq .state)
+          if [ "$STATE" = "MERGED" ]; then
+            echo "PR #$PR_NUMBER já está mergeado"
+            exit 0
+          fi
+
+          gh pr merge "$PR_NUMBER" \
+            --repo "${{ github.repository }}" \
+            --merge \
+            --delete-branch

@@ -1,4 +1,4 @@
-name: Auto approve when Vercel passes
+name: Auto approve and merge when Vercel passes
 
 on:
   pull_request:
@@ -9,8 +9,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  approve:
-    if: github.event.pull_request.draft == false
+  approve-and-merge:
+    if: >
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.base.ref == 'development' &&
+      github.event.pull_request.head.ref != 'main' &&
+      github.event.pull_request.head.ref != 'development'
     runs-on: ubuntu-latest
     permissions:
       checks: read
@@ -32,8 +36,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Enable auto-merge
+      - name: Merge pull request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr merge "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --auto --merge || true
+          gh pr merge "${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}" \
+            --merge \
+            --delete-branch || true
