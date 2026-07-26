@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react"
 import { useState, useEffect } from "react"
 import { useLanguage, Language } from "@/contexts/LanguageContext"
 import { ThemeColorPicker } from "@/components/ThemeColorPicker"
+import { trackSectionNav } from "@/lib/analytics"
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage()
@@ -59,10 +60,10 @@ export function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  // Função para scroll suave
   const scrollToSection = (sectionId: string) => {
     setIsManualScroll(true)
     setActiveSection(sectionId)
+    trackSectionNav(sectionId)
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({
@@ -75,7 +76,6 @@ export function Header() {
     }
   }
 
-  // Detecção da seção ativa baseada no scroll
   useEffect(() => {
     const handleScroll = () => {
       if (isManualScroll) return

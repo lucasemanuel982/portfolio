@@ -7,9 +7,11 @@ import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { motion } from "motion/react";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { useSectionTracking } from "@/hooks/useSectionTracking";
+import { useEngagementTracking } from "@/hooks/useEngagementTracking";
+import { useVisitNotification } from "@/hooks/useVisitNotification";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Lazy loading de componentes pesados
 const FeaturesSectionAboutMe = dynamic(() => import("@/components/AboutMe"), {
   loading: () => <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div></div>
 });
@@ -35,8 +37,10 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 });
 
 export default function Home() {
-  // Rastrear visualizações de página
   usePageTracking();
+  useSectionTracking();
+  useEngagementTracking();
+  useVisitNotification();
   const { t } = useLanguage();
 
   return (
