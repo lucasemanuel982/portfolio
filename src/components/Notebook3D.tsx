@@ -41,9 +41,20 @@ export default function Notebook3D() {
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <pointLight position={[-10, -10, -5]} intensity={0.5} />
-        
+        {/* Luz principal estilo "luminária" focada no notebook */}
+        <spotLight
+          position={[0, 8, 2]}
+          angle={0.6}
+          penumbra={0.5}
+          intensity={3}
+          distance={20}
+          castShadow
+        />
+        {/* Luz de preenchimento suave superior para destacar os contornos */}
+        <spotLight position={[0, 10, 0]} intensity={0.5} angle={1} penumbra={1} color="#ffffff" />
+
         <NotebookModel />
-        
+
         <OrbitControls
           enableZoom={false}
           enablePan={false}

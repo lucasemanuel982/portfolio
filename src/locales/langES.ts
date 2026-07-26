@@ -110,6 +110,20 @@ export const langES = {
                     "Creación de sistemas de seguimiento de vehículos",
                     "Creación de sistemas de gestión de vehículos"
                 ]
+            },
+            arkmeds: {
+                title: "Desarrollador Full Stack",
+                location: "Remoto",
+                description: "Implementaciones y correcciones de errores en un ERP con facturas de servicio y productos, cuentas por pagar y cobrar, integraciones con SEFAZ y bancos para generación de boletos.",
+                detailedDescription: "Actúo como Desarrollador Full Stack en Arkmeds, realizando implementaciones y correcciones de errores en un ERP que contempla facturas de servicio y productos, además de cuentas por pagar y cobrar. Trabajo con integración a SEFAZ y con bancos para generación de boletos. También realizo mantenimiento y creación de nuevos Lambdas, además de notificaciones relacionadas con la generación de facturas y boletos. Desarrollé flujos en N8N para la generación automática de facturas y boletos.",
+                achievements: [
+                    "Implementaciones y correcciones de errores en ERP (facturas de servicio/productos, cuentas por pagar y cobrar)",
+                    "Integración con SEFAZ para emisión de facturas",
+                    "Integración bancaria para generación de boletos",
+                    "Mantenimiento y creación de Lambdas en AWS",
+                    "Notificaciones de generación de facturas y boletos",
+                    "Flujos N8N para generación automática de facturas y boletos"
+                ]
             }
         }
     },

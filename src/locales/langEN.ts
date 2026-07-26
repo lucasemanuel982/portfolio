@@ -110,6 +110,20 @@ export const langEN = {
                     "Creation of vehicle tracking systems",
                     "Creation of vehicle management systems"
                 ]
+            },
+            arkmeds: {
+                title: "Full Stack Developer",
+                location: "Remote",
+                description: "Implementations and bug fixes in an ERP with service and product invoices, accounts payable and receivable, SEFAZ integrations and banks for boleto generation.",
+                detailedDescription: "I work as a Full Stack Developer at Arkmeds, implementing features and fixing bugs in an ERP that covers service and product invoices, as well as accounts payable and receivable. I work on SEFAZ integration and bank integrations for boleto generation. I also maintain and create new AWS Lambdas, plus notifications related to invoice and boleto generation. I built N8N workflows for automatic generation of invoices and boletos.",
+                achievements: [
+                    "Implementations and bug fixes in ERP (service/product invoices, accounts payable and receivable)",
+                    "SEFAZ integration for invoice issuance",
+                    "Banking integration for boleto generation",
+                    "Maintenance and creation of AWS Lambdas",
+                    "Notifications for invoice and boleto generation",
+                    "N8N workflows for automatic invoice and boleto generation"
+                ]
             }
         }
     },

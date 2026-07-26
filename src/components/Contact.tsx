@@ -117,7 +117,18 @@ export default function Contact() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Notebook Column */}
-            <div className="order-1 lg:order-1">
+            <div className="order-1 lg:order-1 relative group">
+              {/* Efeito de Luminária (Cone de Luz) */}
+              <div
+                className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-gradient-to-b from-brand-500/10 via-brand-500/5 to-transparent -z-10 pointer-events-none blur-xl transition-all duration-300 group-hover:from-brand-500/20"
+                style={{
+                  clipPath: 'polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%)',
+                }}
+              />
+
+              {/* Fonte da luz (Brilho no topo) */}
+              <div className="absolute -top-[5%] left-1/2 -translate-x-1/2 w-40 h-10 bg-brand-500/30 rounded-full blur-2xl -z-10" />
+
               <Notebook3D />
             </div>
 

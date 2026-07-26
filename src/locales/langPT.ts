@@ -110,6 +110,20 @@ export const langPT = {
                     "Criação de sistemas de rastreamento de veículos",
                     "Criação de sistemas de gerenciamento de veículos"
                 ]
+            },
+            arkmeds: {
+                title: "Desenvolvedor Full Stack",
+                location: "Remoto",
+                description: "Implementações e correções de bugs em um ERP com notas fiscais de serviço e produtos, contas a pagar e receber, integrações com SEFAZ e bancos para geração de boletos.",
+                detailedDescription: "Atuo como Desenvolvedor Full Stack na Arkmeds, realizando implementações e correções de bugs em um ERP que contempla notas fiscais de serviço e produtos, além de contas a pagar e receber. Trabalho com integração à SEFAZ e com bancos para geração de boletos. Também realizo manutenções e criações de novos Lambdas, além de notificações relacionadas à geração de notas e boletos. Desenvolvi fluxos no N8N para geração automática de notas fiscais e boletos.",
+                achievements: [
+                    "Implementações e correções de bugs em ERP (NFS-e, NF-e, contas a pagar e receber)",
+                    "Integração com SEFAZ para emissão de notas fiscais",
+                    "Integração bancária para geração de boletos",
+                    "Manutenção e criação de Lambdas na AWS",
+                    "Notificações de geração de notas fiscais e boletos",
+                    "Fluxos N8N para geração automática de notas e boletos"
+                ]
             }
         }
     },
