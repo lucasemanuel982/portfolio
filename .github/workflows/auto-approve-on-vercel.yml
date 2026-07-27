@@ -1,0 +1,69 @@
+name: Auto approve and merge when Vercel passes
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+  group: auto-approve-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  approve-and-merge:
+    if: >
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.base.ref == 'development' &&
+      github.event.pull_request.head.ref != 'main' &&
+      github.event.pull_request.head.ref != 'development'
+    runs-on: ubuntu-latest
+    permissions:
+      checks: read
+      statuses: read
+      pull-requests: write
+      contents: write
+    steps:
+      - name: Wait for Vercel check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          echo "Aguardando check Vercel no PR #$PR_NUMBER..."
+          for i in $(seq 1 60); do
+            STATUS=$(gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" --json name,state \
+              --jq '.[] | select(.name == "Vercel") | .state' | head -n 1 || true)
+            echo "[$i] Vercel status: ${STATUS:-pending}"
+            if [ "$STATUS" = "SUCCESS" ]; then
+              echo "Vercel OK"
+              exit 0
+            fi
+            if [ "$STATUS" = "FAILURE" ] || [ "$STATUS" = "ERROR" ] || [ "$STATUS" = "CANCELLED" ]; then
+              echo "Vercel falhou: $STATUS"
+              exit 1
+            fi
+            sleep 15
+          done
+          echo "Timeout aguardando Vercel"
+          gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" || true
+          exit 1
+
+      - name: Approve pull request
+        continue-on-error: true
+        uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          STATE=$(gh pr view "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --json state --jq .state)
+          if [ "$STATE" = "MERGED" ]; then
+            echo "PR já mergeado"
+            exit 0
+          fi
+          gh pr merge "${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}" \
+            --merge \
+            --delete-branch

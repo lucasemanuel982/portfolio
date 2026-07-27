@@ -1,0 +1,111 @@
+name: Auto create PR and merge
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - development
+
+concurrency:
+  group: auto-pr-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  create-and-merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: read
+      statuses: read
+    steps:
+      - name: Create PR to development if missing
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ github.ref_name }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+        run: |
+          set -euo pipefail
+
+          EXISTING=$(gh pr list \
+            --repo "${{ github.repository }}" \
+            --head "$BRANCH" \
+            --base development \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "PR #$EXISTING já existe para $BRANCH"
+            echo "number=$EXISTING" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          TITLE=$(printf '%s\n' "$COMMIT_MSG" | head -n 1)
+          if [ -z "$TITLE" ]; then
+            TITLE="$BRANCH"
+          fi
+
+          URL=$(gh pr create \
+            --repo "${{ github.repository }}" \
+            --base development \
+            --head "$BRANCH" \
+            --title "$TITLE" \
+            --body "PR criado automaticamente a partir da branch \`$BRANCH\`.
+
+Será mergeado em \`development\` após o check da Vercel passar.")
+
+          NUMBER=$(printf '%s\n' "$URL" | grep -oE '[0-9]+$')
+          echo "Criado PR #$NUMBER"
+          echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for Vercel check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          set -euo pipefail
+          echo "Aguardando check Vercel no PR #$PR_NUMBER..."
+          for i in $(seq 1 60); do
+            STATUS=$(gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" --json name,state \
+              --jq '.[] | select(.name == "Vercel") | .state' | head -n 1 || true)
+            echo "[$i] Vercel status: ${STATUS:-pending}"
+            if [ "$STATUS" = "SUCCESS" ]; then
+              echo "Vercel OK"
+              exit 0
+            fi
+            if [ "$STATUS" = "FAILURE" ] || [ "$STATUS" = "ERROR" ] || [ "$STATUS" = "CANCELLED" ]; then
+              echo "Vercel falhou: $STATUS"
+              exit 1
+            fi
+            sleep 15
+          done
+          echo "Timeout aguardando Vercel"
+          gh pr checks "$PR_NUMBER" --repo "${{ github.repository }}" || true
+          exit 1
+
+      - name: Approve pull request
+        continue-on-error: true
+        uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ steps.pr.outputs.number }}
+
+      - name: Merge pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          set -euo pipefail
+
+          STATE=$(gh pr view "$PR_NUMBER" --repo "${{ github.repository }}" --json state --jq .state)
+          if [ "$STATE" = "MERGED" ]; then
+            echo "PR #$PR_NUMBER já está mergeado"
+            exit 0
+          fi
+
+          gh pr merge "$PR_NUMBER" \
+            --repo "${{ github.repository }}" \
+            --merge \
+            --delete-branch
