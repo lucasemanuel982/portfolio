@@ -44,9 +44,9 @@ export default function Home() {
   const { t } = useLanguage();
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-[100dvh]">
       <AnimatedBackground />
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10 min-h-[100dvh]">
         <Header />
         <section id="home">
           <Hero />

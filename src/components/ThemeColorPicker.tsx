@@ -48,7 +48,7 @@ export function ThemeColorPicker() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.1 }}
-                        className="absolute right-0 mt-2 p-3 bg-neutral-900/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-xl w-64 z-[60] origin-top-right"
+                        className="absolute left-1/2 -translate-x-1/2 md:left-auto md:right-0 md:translate-x-0 mt-2 p-3 bg-neutral-900/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-xl w-[min(16rem,calc(100vw-2rem))] z-[60] origin-top"
                     >
                         <div className="text-sm font-medium text-gray-300 mb-3 ml-1">{t('header.themeColor')}</div>
 
