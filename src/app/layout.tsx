@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     siteName: "Portfolio de Lucas Emanuel",
     images: [
       {
-        url: "/Perfil.png",
+        url: "/Perfil-og.jpg",
         width: 800,
-        height: 600,
+        height: 800,
         alt: "Lucas Emanuel - Desenvolvedor Full Stack",
       },
     ],
@@ -51,10 +51,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lucas Emanuel - Desenvolvedor Full Stack | Portfolio",
     description: "Lucas Emanuel - Desenvolvedor Full Stack especializado em React, Next.js, Node.js e PHP. Conheça meus projetos e experiência profissional.",
-    images: ["/Perfil.png"],
+    images: ["/Perfil-og.jpg"],
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [{ url: "/favicon-32.png", sizes: "32x32", type: "image/png" }],
+    apple: "/favicon-32.png",
   },
 };
 
